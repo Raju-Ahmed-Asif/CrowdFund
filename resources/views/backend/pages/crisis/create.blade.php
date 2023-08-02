@@ -1,6 +1,6 @@
 @extends('backend.master')
 @section('content')
-<form action="{{route('store.crisis')}}" method="post"  enctype="multipart/for  m-data">
+<form action="{{route('store.crisis')}}" method="post" enctype="multipart/form-data">
     @csrf
   <div class="form-group">
     <label for="formGroupExampleInput">Name</label>
@@ -24,7 +24,7 @@
   <option value="{{$item->id}}">{{$item->name}}</option>
 
   @endforeach
-  
+
 </select>
   </div>
 
@@ -46,8 +46,6 @@
   </div>
 
 
-
-    
             <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection

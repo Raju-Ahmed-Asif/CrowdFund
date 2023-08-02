@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">image</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">From_date</th>
@@ -19,6 +20,7 @@
   @foreach($crisis as $key=>$item)
     <tr>
       <th scope="row">{{$key+1}}</th>
+      <td><img height="100px" width="100px" src="{{ asset('/public/uploads/'.$item->image) }}" alt=""></td>
       <td>{{$item->name}}</td>
       <td>{{$item->description}}</td>
       <td>{{$item->from_date}}</td>

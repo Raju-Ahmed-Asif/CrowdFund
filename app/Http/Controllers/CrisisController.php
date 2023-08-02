@@ -24,24 +24,30 @@ class CrisisController extends Controller
    public function store(Request $request)
    {
     // dd($request->all());
-    $request->validate([
-      'name'=>'required',
-      'description'=>'required',
-      //'image'=>'required',
-      'amount_need'=>'required'
-  ]);
-    // dd($request->all());
-    if($request->hasFile('image')){
+//     $request->validate([
+//       'name'=>'required',
+//       'description'=>'required',
+//       'image'=>'required',
+//       'amount_need'=>'required'
+//   ]);
+     //dd($request->all());
 
-    $image=$request->file('image');
-    $fileName=date('Ymdhsi').'.'.$image->getClientOriginalExtension();
-    $image->storeAs('/crises',$fileName);
+
+          $imageName = null;
+          if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $imageName = date('Ymdi').'.'.$file->extension();
+            $file->storeAs('uploads', $imageName, 'public');
+
+
+           // dd($imageName);
+
 
     }
     Crisis::create([
         "name"          => $request->name,
         "description"   => $request->description,
-        //"image"         => $fileName,
+        "image"         => $imageName,
         "donor_id"=>$request->donor,
         "from_date"     => $request->from_date,
         "to_date"       => $request->to_date,
