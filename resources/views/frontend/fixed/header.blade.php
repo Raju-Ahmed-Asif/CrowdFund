@@ -56,7 +56,7 @@
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="{{ route('homepage') }}">Home</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="{{route('frontend.crisis')}}">latest causes</a></li>
                                             <li><a href="events.html">social events </a></li>

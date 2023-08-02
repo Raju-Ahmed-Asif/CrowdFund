@@ -85,7 +85,9 @@ class CrisisController extends Controller
 
   public function frontend_crisis(){
 
-    return view('frontend.pages.crisis');
+    $crisis = Crisis::all();
+
+    return view('frontend.pages.crisis',compact('crisis'));
 
   }
 
