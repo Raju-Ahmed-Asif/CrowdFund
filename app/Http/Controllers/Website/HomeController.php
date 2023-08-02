@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function homepage(){
 
 
-        return view('frontend.master');
+        return view('frontend.pages.home');
     }
     public function registration(){
 
