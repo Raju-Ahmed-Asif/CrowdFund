@@ -34,7 +34,7 @@ use App\Http\Controllers\ExpenseController;
  Route::get('/registration-form',[HomeController::class,'registration'])->name('registration');
  Route::post('/registration-store',[HomeController::class,'registration_store'])->name('registration.store');
 
-
+ Route::get('/frontend-crisis',[CrisisController::class,'frontend_crisis'])->name('frontend.crisis');
  Route::get('/',[HomeController::class,'homepage'])->name('homepage');
 
 

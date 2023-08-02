@@ -58,7 +58,7 @@
                                         <ul id="navigation">
                                             <li><a href="index.html">Home</a></li>
                                             <li><a href="about.html">About</a></li>
-                                            <li><a href="program.html">latest causes</a></li>
+                                            <li><a href="{{route('frontend.crisis')}}">latest causes</a></li>
                                             <li><a href="events.html">social events </a></li>
                                             <li><a href="blog.html">Blog</a>
                                                 <ul class="submenu">

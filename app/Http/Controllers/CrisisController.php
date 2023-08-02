@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CrisisController extends Controller
 {
    public function index()
-   
+
    {
     $crisis=Crisis::with('crido')->get();
     return view('backend.pages.crisis.index',compact('crisis'));
@@ -20,7 +20,7 @@ class CrisisController extends Controller
     $donor=Donor::all();
      return view('backend.pages.crisis.create',compact('donor'));
    }
-    
+
    public function store(Request $request)
    {
     // dd($request->all());
@@ -54,7 +54,7 @@ class CrisisController extends Controller
 
 
    //report
-    
+
    public function crisis_report(){
 
      return view('backend.pages.crisis.crisisReport');
@@ -80,6 +80,12 @@ class CrisisController extends Controller
 
   return view('backend.pages.crisis.crisisReport',compact('crisis'));
 
+
+  }
+
+  public function frontend_crisis(){
+
+    return view('frontend.pages.crisis');
 
   }
 
