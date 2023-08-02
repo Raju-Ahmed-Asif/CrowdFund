@@ -1,5 +1,5 @@
-@extends('frontend.master')
-@section('content')
+
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -26,10 +26,12 @@
     </p>
   </form>
   <div id="create-account-wrap">
-    
+
 </div><!--login-form-wrap-->
 <!-- partial -->
-  
+
 </body>
 </html>
-@endsection
+
+
+

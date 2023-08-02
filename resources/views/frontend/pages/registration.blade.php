@@ -1,12 +1,9 @@
-@extends('frontend.master')
 
-
-@section('content')
 
 <h1>Customer Registration</h1>
 
 <form action="{{route('registration.store')}}" method="post">
- 
+
 @csrf
 
 <div class="form-group">
@@ -24,9 +21,9 @@
     <input name="password" type="password" class="form-control" id="password" placeholder="Password">
   </div>
 
-  
+
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-@endsection
+

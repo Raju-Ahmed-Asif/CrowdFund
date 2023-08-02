@@ -29,10 +29,12 @@ use App\Http\Controllers\ExpenseController;
 
 
 //frontend
- Route::get('/volunteerlogin',[HomeController::class,'login'])->name('volunteer.login');
+ Route::get('/volunteerLogin',[HomeController::class,'login'])->name('volunteer.login');
  Route::post('/login-match',[HomeController::class,'login_match'])->name('login_match');
  Route::get('/registration-form',[HomeController::class,'registration'])->name('registration');
  Route::post('/registration-store',[HomeController::class,'registration_store'])->name('registration.store');
+
+
  Route::get('/',[HomeController::class,'homepage'])->name('homepage');
 
 

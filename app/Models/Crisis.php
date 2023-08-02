@@ -14,4 +14,5 @@ class Crisis extends Model
     public function crido(){
         return $this->belongsTo(Donor::class,'donor_id','id');
     }
+    
 }
