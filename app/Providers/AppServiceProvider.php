@@ -27,10 +27,18 @@ class AppServiceProvider extends ServiceProvider
 
 
         Paginator::useBootstrap();
-        
-        $crisis=Crisis::all();
-        View::share('cris',$crisis);
-        
+
+        try {
+            $crisis = Crisis::all(); // Try to fetch data from the database
+            View::share('cris', $crisis);
+        } catch (\Exception $e) {
+            //An exception occurred, handle the error
+            $crisis = [];
+
+        }
+
+
+
 
     }
 }

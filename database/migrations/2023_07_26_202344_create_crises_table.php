@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('crises', function (Blueprint $table) {
             $table->id();
             $table->string('name', 120);
-            $table->string('status',10)->default('active'); 
+            $table->string('status',10)->default('active');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->foreignId('donor_id')->constrained('donors')->cascadeOnDelete();
+            $table->foreignId('donor_id');
             $table->double('amount_need',10,2)->default(0.0);
             $table->double('amount_raised',10,2)->default(0.0);
             $table->dateTime('from_date')->nullable();
