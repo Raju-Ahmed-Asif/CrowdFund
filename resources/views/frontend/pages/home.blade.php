@@ -125,10 +125,10 @@
                     <!-- about-img -->
                     <div class="about-img ">
                         <div class="about-font-img d-none d-lg-block">
-                            <img src="assets/img/gallery/about2.png" alt="">
+                            <img src="{{asset ('frontend/assets/img/gallery/about2.png') }}" alt="">
                         </div>
                         <div class="about-back-img ">
-                            <img src="assets/img/gallery/about1.png" alt="">
+                            <img src="{{asset ('frontend/assets/img/gallery/about1.png') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/img/gallery/case1.png" alt="">
+                            <img src="{{ asset('frontend/assets/img/gallery/case1.png') }}" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
@@ -178,7 +178,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/img/gallery/case2.png" alt="">
+                            <img src="{{asset ('frontend/assets/img/gallery/case2.png') }}" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Providing Healthy Food For The Children</a></h3>
@@ -204,7 +204,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="assets/img/gallery/case3.png" alt="">
+                            <img src="{{asset ('frontend/assets/img/gallery/case3.png') }}" alt="">
                         </div>
                         <div class="cases-caption">
                             <h3><a href="#">Supply Drinking Water For  The People</a></h3>
@@ -285,7 +285,7 @@
                     <div class="single-job-items mb-30">
                         <div class="job-items">
                             <div class="company-img">
-                                <a href="#"><img src="assets/img/gallery/socialEvents3.png" alt=""></a>
+                                <a href="#"><img src="{{asset ('frontend/assets/img/gallery/socialEvents3.png') }}" alt=""></a>
                             </div>
                             <div class="job-tittle">
                                 <a href="#"><h4>Help for Children</h4></a>
