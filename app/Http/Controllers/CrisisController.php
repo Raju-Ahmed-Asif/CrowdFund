@@ -36,7 +36,7 @@ class CrisisController extends Controller
           $imageName = null;
           if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $imageName = date('Ymdi').'.'.$file->extension();
+            $imageName = date('Ymdis').'.'.$file->extension();
             $file->storeAs('uploads', $imageName, 'public');
 
 
@@ -44,9 +44,6 @@ class CrisisController extends Controller
 
 
     }
-//dd($request->all());
-
-
     Crisis::create([
         "name"          => $request->name,
         "description"   => $request->description,
@@ -55,8 +52,7 @@ class CrisisController extends Controller
         "from_date"     => $request->from_date,
         "to_date"       => $request->to_date,
         "amount_need"   => $request->amount_need,
-        "amount_raised" => $request->amount_raised,
-        "about_crisis"  => $request->about_crisis
+        "amount_raised" => $request->amount_raised
     ]);
      return redirect()->route('index.crisis');
    }
@@ -71,16 +67,6 @@ class CrisisController extends Controller
 
    }
 
-public function crisis_delete($id){
-
-    $crisis=Crisis::find($id)->delete();
-
-    //$crisis->delete();
-
-return back();
-
-
-}
 
    public function crisis_search(Request $request){
 
@@ -109,14 +95,6 @@ return back();
 
     return view('frontend.pages.crisis',compact('crisis'));
 
-  }
-
-  public function crisis_details($id){
-
-    $crisis=Crisis::find($id);
-    //dd($id);
-
-    return view('frontend.pages.crisis.crisisdetails',compact('crisis'));
   }
 
 }
