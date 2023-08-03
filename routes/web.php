@@ -35,6 +35,8 @@ use App\Http\Controllers\ExpenseController;
  Route::post('/registration-store',[HomeController::class,'registration_store'])->name('registration.store');
 
  Route::get('/frontend-crisis',[CrisisController::class,'frontend_crisis'])->name('frontend.crisis');
+ Route::get('/crisis-details/{id}',[CrisisController::class,'crisis_details'])->name('crisis.details');
+
  Route::get('/',[HomeController::class,'homepage'])->name('homepage');
 
 
@@ -57,6 +59,9 @@ Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboa
 Route::get('/index',[CrisisController::class,'index'])->name('index.crisis');
 Route::get('/create',[CrisisController::class,'create'])->name('create.crisis');
 Route::post('/store',[CrisisController::class,'store'])->name('store.crisis');
+Route::get('/crisis-delete/{id}',[CrisisController::class,'crisis_delete'])->name('crisis.delete');
+
+
 Route::get('/expense_cat_index',[Expense_categoryController::class,'index'])->name('index.expense_categories');
 Route::get('/createe',[Expense_categoryController::class,'create'])->name('create.expense_categories');
 Route::post('/expense_store',[Expense_categoryController::class,'store'])->name('store.expense_category');

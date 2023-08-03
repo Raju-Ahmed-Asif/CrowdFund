@@ -22,6 +22,9 @@ return new class extends Migration
             $table->double('amount_raised',10,2)->default(0.0);
             $table->dateTime('from_date')->nullable();
             $table->dateTime('to_date')->nullable();
+            $table->longText('about_crisis');
+
+
             $table->timestamps();
         });
     }

@@ -44,6 +44,9 @@ class CrisisController extends Controller
 
 
     }
+//dd($request->all());
+
+
     Crisis::create([
         "name"          => $request->name,
         "description"   => $request->description,
@@ -52,7 +55,8 @@ class CrisisController extends Controller
         "from_date"     => $request->from_date,
         "to_date"       => $request->to_date,
         "amount_need"   => $request->amount_need,
-        "amount_raised" => $request->amount_raised
+        "amount_raised" => $request->amount_raised,
+        "about_crisis"  => $request->about_crisis
     ]);
      return redirect()->route('index.crisis');
    }
@@ -67,6 +71,16 @@ class CrisisController extends Controller
 
    }
 
+public function crisis_delete($id){
+
+    $crisis=Crisis::find($id)->delete();
+
+    //$crisis->delete();
+
+return back();
+
+
+}
 
    public function crisis_search(Request $request){
 
@@ -95,6 +109,14 @@ class CrisisController extends Controller
 
     return view('frontend.pages.crisis',compact('crisis'));
 
+  }
+
+  public function crisis_details($id){
+
+    $crisis=Crisis::find($id);
+    //dd($id);
+
+    return view('frontend.pages.crisis.crisisdetails',compact('crisis'));
   }
 
 }

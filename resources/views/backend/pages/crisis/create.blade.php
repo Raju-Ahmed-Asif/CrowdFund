@@ -44,6 +44,10 @@
     <label for="">Amount_Raised</label>
     <input type="number" name="amount_raised" class="form-control" id="" placeholder=" ">
   </div>
+  <div class="form-group">
+    <label for="">About_crisis</label>
+    <input type="text" name="about_crisis" class="form-control" id="" placeholder=" ">
+  </div>
 
 
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -21,7 +21,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-cases mb-40">
                     <div class="cases-img">
-                        <img src="{{ asset('/public/uploads/'.$item->image) }}" alt="">
+                      <a href="{{route('crisis.details',$item->id)}}">  <img src="{{ asset('/public/uploads/'.$item->image) }}" alt=""></a>
                     </div>
                     <div class="cases-caption">
                         <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
