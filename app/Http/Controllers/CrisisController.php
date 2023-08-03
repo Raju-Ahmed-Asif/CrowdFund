@@ -98,9 +98,11 @@ class CrisisController extends Controller
 
   }
 
-  public function crisis_details(){
+  public function crisis_details($id){
 
-    return view('frontend.pages.crisis.crisisdetails');
+    $crisisDetails = Crisis::find($id);
+
+    return view('frontend.pages.crisis.crisisdetails',compact('crisisDetails'));
   }
 
 }
