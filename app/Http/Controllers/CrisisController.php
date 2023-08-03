@@ -98,4 +98,9 @@ class CrisisController extends Controller
 
   }
 
+  public function crisis_details(){
+
+    return view('frontend.pages.crisis.crisisdetails');
+  }
+
 }
