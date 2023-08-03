@@ -9,48 +9,41 @@
                 <!-- Section Tittle -->
                 <div class="section-tittle text-center mb-80">
                     <span>Our Cases you can see</span>
-                    <h2>Explore our latest causes that we works </h2>
+                    <h2>Explore our latest causes that we work on</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-
-
             @foreach ($crisis as $item)
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-cases mb-40">
+                        <div class="cases-img">
+                            <a href="{{ route('crisis.details', $item->id) }}"><img src="{{ asset('/public/uploads/'.$item->image) }}" alt=""></a>
+                        </div>
+                        <div class="cases-caption">
+                            <h3><a href="#">{{ $item->name }}</a></h3>
+                            <!-- Progress Bar -->
+                            <div class="single-skill mb-15">
+                                <div class="bar-progress">
+                                    <div id="bar{{ $loop->index }}" class="barfiller" style="background: #f1f1f1;">
+                                        <div class="tipWrap">
+                                            <span class="tip"></span>
+                                        </div>
+                                        <strong>{{ intval($item->percentage) }} %</strong>
+                                        <span class="fill" data-percentage="{{ $item->percentage }}" style="background: #0fb863;"></span>
 
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-cases mb-40">
-                    <div class="cases-img">
-                      <a href="{{route('crisis.details',$item->id)}}">  <img src="{{ asset('/public/uploads/'.$item->image) }}" alt=""></a>
-                    </div>
-                    <div class="cases-caption">
-                        <h3><a href="#">Ensure Education For Every Poor Children</a></h3>
-                        <!-- Progress Bar -->
-                        <div class="single-skill mb-15">
-                            <div class="bar-progress">
-                                <div id="bar1" class="barfiller">
-                                    <div class="tipWrap">
-                                        <span class="tip"></span>
                                     </div>
-                                    <span class="fill" data-percentage="70"></span>
                                 </div>
                             </div>
-                        </div>
-                        <!-- / progress -->
-                        <div class="prices d-flex justify-content-between">
-                            <p>Raised:<span>{{$item->amount_raised  }} Tk. </span></p>
-                            <p>Goal:<span> {{$item->amount_need  }} Tk.</span></p>
+                            <!-- / progress -->
+                            <div class="prices d-flex justify-content-between">
+                                <p>Raised: <span>{{ $item->amount_raised }} Tk.</span></p>
+                                <p>Goal: <span>{{ $item->amount_need }} Tk.</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
             @endforeach
-
-
-
-
-
         </div>
     </div>
 </div>
