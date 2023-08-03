@@ -52,7 +52,8 @@ class CrisisController extends Controller
         "from_date"     => $request->from_date,
         "to_date"       => $request->to_date,
         "amount_need"   => $request->amount_need,
-        "amount_raised" => $request->amount_raised
+        "amount_raised" => $request->amount_raised,
+        "about_crisis"=>$request->about_crisis
     ]);
      return redirect()->route('index.crisis');
    }
