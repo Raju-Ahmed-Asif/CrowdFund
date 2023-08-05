@@ -31,7 +31,7 @@
                      <div class="blog_details">
                         <h2 style="color: #2d2d2d;">{{$crisisDetails->description }}
                         </h2><br>
-                        <a href="" class="btn btn-success" style="color: aliceblue">DONATE NOW</a><br>
+                        <a href="{{ route('donate.form') }}" class="btn btn-success" style="color: aliceblue">DONATE NOW</a><br>
 
                         <p class="excert">{{$crisisDetails->about_crisis }}
                         </p>
