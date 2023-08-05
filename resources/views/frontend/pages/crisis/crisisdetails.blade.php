@@ -25,13 +25,13 @@
             <div class="row">
                <div class="col-lg-8 posts-list">
                   <div class="single-post">
-                    <div class="feature-img" style="display: flex; justify-content: center; align-items: center; height: 200px;">
+                    <div class="feature-img">
                         <img height="200px" width="250px" class="img-fluid" src="{{ asset('/public/uploads/'.$crisisDetails->image) }}" alt="">
                     </div>
                      <div class="blog_details">
                         <h2 style="color: #2d2d2d;">{{$crisisDetails->description }}
                         </h2><br>
-                        <a href="" class="btn btn-success" style="color: aliceblue">DONATE NOW</a><br>
+                        <a href="{{ route('donate.form') }}" class="btn btn-success" style="color: aliceblue">DONATE NOW</a><br>
 
                         <p class="excert">{{$crisisDetails->about_crisis }}
                         </p>

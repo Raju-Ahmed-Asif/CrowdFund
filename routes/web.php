@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactCotroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CrisisController;
+use App\Http\Controllers\DonateController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\Expense_categoryController;
@@ -38,6 +40,10 @@ use App\Http\Controllers\ExpenseController;
  Route::get('/crisis-details/{id}',[CrisisController::class,'crisis_details'])->name('crisis.details');
 
  Route::get('/',[HomeController::class,'homepage'])->name('homepage');
+ Route::get('donate-form',[DonateController::class,'donateForm'])->name('donate.form');
+ Route::post('donate-store',[DonateController::class,'donatestore'])->name('donate.store');
+
+ Route::get('contactUs',[ContactCotroller::class,'contactUs'])->name('contact.us');
 
 
 

@@ -95,10 +95,11 @@ class CrisisController extends Controller
 
     $crisis = Crisis::all();
 
-  
+
     // Calculate the percentage for each crisis
+    
     foreach ($crisis as $crisisItem) {
-        $crisisItem->percentage = ($crisisItem->amount_raised / $crisisItem->amount_need) * 100;
+    $crisisItem->percentage = ($crisisItem->amount_raised / $crisisItem->amount_need) * 100;
     }
 
     return view('frontend.pages.crisis',compact('crisis'));
