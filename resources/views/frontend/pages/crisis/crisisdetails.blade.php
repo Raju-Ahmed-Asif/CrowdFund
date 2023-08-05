@@ -25,7 +25,7 @@
             <div class="row">
                <div class="col-lg-8 posts-list">
                   <div class="single-post">
-                    <div class="feature-img" style="display: flex; justify-content: center; align-items: center; height: 200px;">
+                    <div class="feature-img">
                         <img height="200px" width="250px" class="img-fluid" src="{{ asset('/public/uploads/'.$crisisDetails->image) }}" alt="">
                     </div>
                      <div class="blog_details">
