@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donor;
 use App\Models\Crisis;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 class CrisisController extends Controller
@@ -39,7 +40,8 @@ class CrisisController extends Controller
     ]);
 
     if ($validator->fails()) {
-        // If validation fails, redirect back with errors and input data
+        Alert::toast()->warning('Something went wrong', 'Failed');
+
         return redirect()->back()->withErrors($validator)->withInput();
     }
      //dd($request->all());
@@ -67,6 +69,7 @@ class CrisisController extends Controller
         "amount_raised" => $request->amount_raised,
         "about_crisis"=>$request->about_crisis
     ]);
+    Alert::toast()->success('Crisis created', 'success');
      return redirect()->route('index.crisis');
    }
 
