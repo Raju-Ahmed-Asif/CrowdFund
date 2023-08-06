@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donor;
 use App\Models\Crisis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CrisisController extends Controller
 {
@@ -24,12 +25,19 @@ class CrisisController extends Controller
    public function store(Request $request)
    {
     // dd($request->all());
-    $request->validate([
-      'name'=>'required',
-      'description'=>'required',
-      'image'=>'required',
-      'amount_need'=>'required|min:0'
-  ]);
+
+
+  $validator = Validator::make($request->all(), [
+
+    'name' => 'required|string|max:100',
+    'amount_raised' => 'required|numeric|min:0',
+    'amount' => 'required|numeric|min:0',
+]);
+
+if ($validator->fails()) {
+
+    return redirect()->back()->withErrors($validator)->withInput();
+}
      //dd($request->all());
 
 
