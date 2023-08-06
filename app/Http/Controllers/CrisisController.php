@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donor;
 use App\Models\Crisis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CrisisController extends Controller
 {
@@ -24,12 +25,23 @@ class CrisisController extends Controller
    public function store(Request $request)
    {
     // dd($request->all());
-//     $request->validate([
-//       'name'=>'required',
-//       'description'=>'required',
-//       'image'=>'required',
-//       'amount_need'=>'required'
-//   ]);
+
+
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'donor' => 'required',
+        'from_date' => 'required|date|after_or_equal:today', // Validate that from_date is today or in the future
+        'to_date' => 'required|date|after_or_equal:from_date', // Validate that to_date is after or equal to from_date
+        'amount_need' => 'required|numeric|min:0',
+        'amount_raised' => 'required|numeric|min:0',
+        'about_crisis' => 'required|string',
+    ]);
+
+    if ($validator->fails()) {
+        // If validation fails, redirect back with errors and input data
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
      //dd($request->all());
 
 
@@ -97,7 +109,7 @@ class CrisisController extends Controller
 
 
     // Calculate the percentage for each crisis
-    
+
     foreach ($crisis as $crisisItem) {
     $crisisItem->percentage = ($crisisItem->amount_raised / $crisisItem->amount_need) * 100;
     }
