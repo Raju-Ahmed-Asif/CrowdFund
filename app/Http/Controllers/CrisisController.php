@@ -30,8 +30,7 @@ class CrisisController extends Controller
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
         'description' => 'required|string',
-        'image' => 'required|string', // You may add validation rules for image if needed
-        'donor' => 'required', // Adjust the validation rule for donor as needed
+        'donor' => 'required',
         'from_date' => 'required|date|after_or_equal:today', // Validate that from_date is today or in the future
         'to_date' => 'required|date|after_or_equal:from_date', // Validate that to_date is after or equal to from_date
         'amount_need' => 'required|numeric|min:0',
