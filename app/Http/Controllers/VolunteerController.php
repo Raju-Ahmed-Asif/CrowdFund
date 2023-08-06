@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Volunteer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class VolunteerController extends Controller
 {
@@ -25,6 +26,19 @@ class VolunteerController extends Controller
             'phone'=>'required'
           ]);
 
+          $validator = Validator::make($request->all(), [
+
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|unique',
+            'amount' => 'required|min:0',
+            'phone' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         //dd($request->all());
 
         Volunteer::create([
@@ -32,17 +46,17 @@ class VolunteerController extends Controller
         "address"           => $request->address,
         "email"             => $request->email,
         "phone"             => $request->phone
-        
+
 
 
         ]);
 
-        
+
         return redirect()->route('index.volunteer');
 
     }
 
 
-    
+
 
 }
