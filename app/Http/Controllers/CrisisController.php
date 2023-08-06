@@ -24,12 +24,12 @@ class CrisisController extends Controller
    public function store(Request $request)
    {
     // dd($request->all());
-//     $request->validate([
-//       'name'=>'required',
-//       'description'=>'required',
-//       'image'=>'required',
-//       'amount_need'=>'required'
-//   ]);
+    $request->validate([
+      'name'=>'required',
+      'description'=>'required',
+      'image'=>'required',
+      'amount_need'=>'required|min:0'
+  ]);
      //dd($request->all());
 
 
@@ -97,7 +97,7 @@ class CrisisController extends Controller
 
 
     // Calculate the percentage for each crisis
-    
+
     foreach ($crisis as $crisisItem) {
     $crisisItem->percentage = ($crisisItem->amount_raised / $crisisItem->amount_need) * 100;
     }
