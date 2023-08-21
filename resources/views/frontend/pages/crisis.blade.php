@@ -8,8 +8,8 @@
             <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
                 <!-- Section Tittle -->
                 <div class="section-tittle text-center mb-80">
-                    <span>Our Cases you can see</span>
-                    <h2>Explore our latest causes that we work on</h2>
+                    <span>Our Crisis you can see</span>
+                    <h2>Explore our latest Crisis that we work on</h2>
                 </div>
             </div>
         </div>

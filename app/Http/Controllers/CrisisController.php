@@ -64,7 +64,7 @@ class CrisisController extends Controller
         "image"         => $imageName,
         "donor_id"       =>$request->donor,
         "from_date"     => $request->from_date,
-        "to_date"       => $request->to_date,
+        "to_date"       => $request->to_date,                                                                                                                                                                                                                                                                                                                       
         "amount_need"   => $request->amount_need,
         "amount_raised" => $request->amount_raised,
         "about_crisis"=>$request->about_crisis
@@ -127,5 +127,18 @@ class CrisisController extends Controller
 
     return view('frontend.pages.crisis.crisisdetails',compact('crisisDetails'));
   }
+
+
+  public function crisis_edit($id){
+    $crisis=Crisis::find($id);
+    return view('backend.pages.crisis.edit',compact('crisis'));
+
+  }
+
+
+
+
+
+
 
 }

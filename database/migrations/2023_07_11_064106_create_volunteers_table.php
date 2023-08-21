@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('volunteers', function (Blueprint $table) {
             $table->id();
-             
+
             $table->string('name');
             $table->text('address');
             $table->string('email');
+            $table->foreignId('crisis_id');
             $table->string('phone')->nullable();
 
 

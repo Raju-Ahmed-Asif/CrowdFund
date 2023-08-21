@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\VolunteerUser;
 use Faker\Guesser\Name;
 use GuzzleHttp\Psr7\Request as Psr7Request;
 
@@ -17,9 +18,29 @@ class HomeController extends Controller
     }
     public function registration(){
 
-        return view('frontend.pages.registration');
+        return view('frontend.pages.volunteers.create');
     }
 
+    public function registration_store(Request $request){
+
+        $request->validate([
+
+            'name'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'address'=>'required',
+
+        ]);
+        VolunteerUser::create([
+            'name' =>$request->name,
+            'email' =>$request->email,
+            'phone' =>$request->phone,
+            'address' =>$request->address,
+        ]);
+
+        return redirect()->back();
+
+    }
 
     public function login(){
 

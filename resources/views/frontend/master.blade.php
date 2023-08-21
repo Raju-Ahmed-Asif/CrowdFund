@@ -48,6 +48,9 @@
 
 
 @yield('content')
+
+
+
 @include('sweetalert::alert')
 
 

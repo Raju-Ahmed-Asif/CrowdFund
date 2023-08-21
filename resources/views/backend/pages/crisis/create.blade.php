@@ -15,35 +15,32 @@
     <input type="file" name="image" class="form-control" id="formGroupExampleInput2">
   </div>
 
-  <div>
-  <label for="donor"> Donor:</label>
-  <select class="form-select" name="donor">
-  <option value="" selected >Select Donor</option>
-  @foreach($donor as $item)
 
-  <option value="{{$item->id}}">{{$item->name}}</option>
-
-  @endforeach
-
-</select>
-  </div>
 
   <div class="form-group">
-    <label for="formGroupExampleInput2">From_Date</label>
+    <label for="formGroupExampleInput2">From Date</label>
     <input type="date" name="from_date" class="form-control" id="formGroupExampleInput2" placeholder=" Write please">
   </div>
    <div class="form-group">
-    <label for="formGroupExampleInput2">To_Date</label>
+    <label for="formGroupExampleInput2">To Date</label>
     <input type="date" name="to_date" class="form-control" id="formGroupExampleInput2" placeholder="Write Please">
   </div>
    <div class="form-group">
-    <label for="">Amount_Need</label>
+    <label for="">Amount Need</label>
     <input type="number" name="amount_need" class="form-control" id="" placeholder=" ">
   </div>
+
    <div class="form-group">
-    <label for="">Amount_Raised</label>
+    <label for="">Amount Raised</label>
     <input type="number" name="amount_raised" class="form-control" id="" placeholder=" ">
   </div>
+
+  <div class="form-group">
+    <label for="">Amount Due</label>
+    <input type="number" name="amount_raised" class="form-control" id="" placeholder=" ">
+  </div>
+
+
   <div class="form-group">
     <label for="">About_crisis</label>
     <input type="text" name="about_crisis" class="form-control" id="" placeholder=" ">

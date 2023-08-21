@@ -27,12 +27,12 @@
       <td>{{$item->to_date}}</td>
       <td>{{$item->amount_need}}</td>
       <td>{{$item->amount_raised}} </td>
-    
+
 
 
       <td>
         <a class="btn btn-primary"  href="">View</a>
-        <a class="btn btn-warning"  href="">Edit</a>
+        <a class="btn btn-warning"  href="{{route('crisis.edit',$item->id)}}">Edit</a>
         <a  class="btn btn-danger" href="{{route('crisis.delete',$item->id)}}">Delete</a>
       </td>
     </tr>

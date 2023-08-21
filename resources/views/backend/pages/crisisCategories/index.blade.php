@@ -1,0 +1,37 @@
+@extends('backend.master')
+@section('content')
+
+
+<div class="container mt-3 p-3">
+    <a href="{{route('category.create')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Crisis Category</a>
+<table class="table table-striped">
+  <thead>
+
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Category Status</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+        @foreach($catData  as $cat=>$category )
+        <tr>
+            <td>{{++$cat}}</td>
+            <td>{{$category->name}}</td>
+            <td>{{$category->status}}</td>
+            <td>
+                <a  class="btn btn-warning" href="">edit</a>
+                <a  class="btn btn-danger" href="">delete</a>
+            </td>
+        </tr>
+        @endforeach
+
+
+  </tbody>
+</table>
+</div>
+@endsection

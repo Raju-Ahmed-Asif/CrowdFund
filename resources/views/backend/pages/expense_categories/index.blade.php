@@ -8,6 +8,7 @@
       <th scope="col">Name</th>
       <th scope="col">Status</th>
       <th scope="col">Description</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -17,16 +18,17 @@
       <td>{{$item->name}}</td>
       <td>{{$item->status}}</td>
       <td>{{$item->description}}</td>
+     
       <td>
-      <a class="btn btn-primary"href="">View</a>
+      <a class="btn btn-primary"href="">Edit</a>
       <a class="btn btn-danger"href="" >Delete </a>
-      <a class="btn btn-danger"href="" >Delete </a>
+      <a class="btn btn-danger"href="" >Update</a>
       </td>
 
     </tr>
 
     @endforeach
-   
+
   </tbody>
 </table>
 
