@@ -11,13 +11,13 @@
       <th scope="col">From_date</th>
       <th scope="col">To_date</th>
       <th scope="col">Amount_need</th>
-      <th scope="col">Amount_raised</th>
+      
       <th scope="col">Action</th>
 
     </tr>
   </thead>
   <tbody>
-  
+
   </tbody>
 </table>
 @endsection

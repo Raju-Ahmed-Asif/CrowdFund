@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('status',10)->default('active');
             $table->text('description')->nullable();
             $table->double('amount_need',10,2)->default(0.0);
-            $table->double('amount_raised',10,2)->default(0.0);
             $table->double('amount_due',10,2)->default(0.0);
             $table->dateTime('from_date')->nullable();
             $table->dateTime('to_date')->nullable();
