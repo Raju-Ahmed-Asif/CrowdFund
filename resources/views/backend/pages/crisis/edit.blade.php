@@ -37,10 +37,7 @@
     <label for="">Amount_Need</label>
     <input type="number" name="amount_need" value="{{$crisis->amount_need}}" class="form-control" id="" placeholder=" ">
   </div>
-   <div class="form-group">
-    <label for="">Amount_Raised</label>
-    <input type="number" name="amount_raised" value="{{$crisis->amount_raised}}" class="form-control" id="" placeholder=" ">
-  </div>
+   
   <div class="form-group">
     <label for="">About_crisis</label>
     <input type="text" name="about_crisis" value="{{$crisis->description}}" class="form-control" id="" placeholder=" ">

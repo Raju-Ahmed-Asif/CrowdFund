@@ -14,7 +14,7 @@ class CrisisController extends Controller
    public function index()
 
    {
-   
+
     return view('backend.pages.crisis.index');
    }
 
@@ -35,7 +35,6 @@ class CrisisController extends Controller
         'from_date' => 'required|date|after_or_equal:today', // Validate that from_date is today or in the future
         'to_date' => 'required|date|after_or_equal:from_date', // Validate that to_date is after or equal to from_date
         'amount_need' => 'required|numeric|min:0',
-        'amount_raised' => 'required|numeric|min:0',
         'amount_due' => 'required|numeric|min:0',
         'about_crisis' => 'required|string',
         'image' => 'required',
@@ -65,7 +64,7 @@ class CrisisController extends Controller
         "name"          => $request->name,
         "description"   => $request->description,
         "from_date"     => $request->from_date,
-        "to_date"       => $request->to_date,                                                                                                                                                                                                                                                                                                                       
+        "to_date"       => $request->to_date,
         "amount_need"   => $request->amount_need,
         "volunteerUser_id"=>$request->volunteerUser_id,
         "about_crisis"=>$request->about_crisis,
@@ -116,9 +115,9 @@ class CrisisController extends Controller
 
     // Calculate the percentage for each crisis
 
-    foreach ($crisis as $crisisItem) {
-    $crisisItem->percentage = ($crisisItem->amount_raised / $crisisItem->amount_need) * 100;
-    }
+    // foreach ($crisis as $crisisItem) {
+    // $crisisItem->percentage = ($crisisItem->amount_raised / $crisisItem->amount_need) * 100;
+    // }
 
     return view('frontend.pages.crisis',compact('crisis'));
 
