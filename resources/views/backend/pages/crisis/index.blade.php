@@ -17,26 +17,7 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($crisis as $key=>$item)
-    <tr>
-      <th scope="row">{{$key+1}}</th>
-      <td><img height="100px" width="100px" src="{{ asset('/public/uploads/'.$item->image) }}" alt=""></td>
-      <td>{{$item->name}}</td>
-      <td>{{$item->description}}</td>
-      <td>{{$item->from_date}}</td>
-      <td>{{$item->to_date}}</td>
-      <td>{{$item->amount_need}}</td>
-      <td>{{$item->amount_raised}} </td>
-
-
-
-      <td>
-        <a class="btn btn-primary"  href="">View</a>
-        <a class="btn btn-warning"  href="{{route('crisis.edit',$item->id)}}">Edit</a>
-        <a  class="btn btn-danger" href="{{route('crisis.delete',$item->id)}}">Delete</a>
-      </td>
-    </tr>
-    @endforeach
+  
   </tbody>
 </table>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donor;
 use App\Models\Crisis;
+use App\Models\VolunteerUser;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
@@ -13,14 +14,14 @@ class CrisisController extends Controller
    public function index()
 
    {
-    $crisis=Crisis::with('crido')->get();
-    return view('backend.pages.crisis.index',compact('crisis'));
+   
+    return view('backend.pages.crisis.index');
    }
 
    public function create()
    {
-    $donor=Donor::all();
-     return view('backend.pages.crisis.create',compact('donor'));
+    $volunteers= VolunteerUser::all();
+     return view('backend.pages.crisis.create', compact('volunteers'));
    }
 
    public function store(Request $request)
@@ -31,12 +32,14 @@ class CrisisController extends Controller
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
         'description' => 'required|string',
-        'donor' => 'required',
         'from_date' => 'required|date|after_or_equal:today', // Validate that from_date is today or in the future
         'to_date' => 'required|date|after_or_equal:from_date', // Validate that to_date is after or equal to from_date
         'amount_need' => 'required|numeric|min:0',
         'amount_raised' => 'required|numeric|min:0',
+        'amount_due' => 'required|numeric|min:0',
         'about_crisis' => 'required|string',
+        'image' => 'required',
+
     ]);
 
     if ($validator->fails()) {
@@ -61,14 +64,14 @@ class CrisisController extends Controller
     Crisis::create([
         "name"          => $request->name,
         "description"   => $request->description,
-        "image"         => $imageName,
-        "donor_id"       =>$request->donor,
         "from_date"     => $request->from_date,
         "to_date"       => $request->to_date,                                                                                                                                                                                                                                                                                                                       
         "amount_need"   => $request->amount_need,
-        "amount_raised" => $request->amount_raised,
-        "about_crisis"=>$request->about_crisis
+        "volunteerUser_id"=>$request->volunteerUser_id,
+        "about_crisis"=>$request->about_crisis,
+        "image"         => $imageName,
     ]);
+
     Alert::toast()->success('Crisis created', 'success');
      return redirect()->route('index.crisis');
    }

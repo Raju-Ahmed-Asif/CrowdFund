@@ -1,22 +1,18 @@
 @extends('backend.master')
 @section('content')
-<form action="{{route('store.crisis')}}" method="post" enctype="multipart/form-data">
+
+  <div class="container">
+  <form action="{{route('store.crisis')}}" method="post" enctype="multipart/form-data">
     @csrf
-  <div class="form-group">
-    <label for="formGroupExampleInput">Name</label>
-    <input type="text" required name="name" class="form-control" id="formGroupExampleInput" placeholder="Enter crisis name...">
-  </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Name</label>
+      <input type="text" required name="name" class="form-control" id="formGroupExampleInput" placeholder="Enter crisis name...">
+    </div>
   <div class="form-group">
     <label for="">Description</label>
     <input type="text" name="description" class="form-control" id="" placeholder="Enter description">
   </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Image</label>
-    <input type="file" name="image" class="form-control" id="formGroupExampleInput2">
-  </div>
-
-
-
+  
   <div class="form-group">
     <label for="formGroupExampleInput2">From Date</label>
     <input type="date" name="from_date" class="form-control" id="formGroupExampleInput2" placeholder=" Write please">
@@ -30,23 +26,28 @@
     <input type="number" name="amount_need" class="form-control" id="" placeholder=" ">
   </div>
 
-   <div class="form-group">
-    <label for="">Amount Raised</label>
-    <input type="number" name="amount_raised" class="form-control" id="" placeholder=" ">
-  </div>
-
   <div class="form-group">
-    <label for="">Amount Due</label>
-    <input type="number" name="amount_raised" class="form-control" id="" placeholder=" ">
+    <label for="">Volunteers</label>
+    <select name="volunteerUser_id" class="form-control" id="">
+      @foreach ($volunteers as $value )
+        <option  value="{{$value->id}}">{{$value->name}}</option>
+      @endforeach
+    </select>
   </div>
-
+  
 
   <div class="form-group">
     <label for="">About_crisis</label>
     <input type="text" name="about_crisis" class="form-control" id="" placeholder=" ">
   </div>
+  
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Image</label>
+    <input type="file" name="image" class="form-control" id="formGroupExampleInput2">
+  </div>
 
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+  </div>
+
 @endsection

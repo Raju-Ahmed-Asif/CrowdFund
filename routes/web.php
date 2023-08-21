@@ -64,12 +64,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
-Route::get('/index',[CrisisController::class,'index'])->name('index.crisis');
-Route::get('/create',[CrisisController::class,'create'])->name('create.crisis');
-Route::post('/store',[CrisisController::class,'store'])->name('store.crisis');
-
-Route::get('/crisis-delete/{id}',[CrisisController::class,'crisis_delete'])->name('crisis.delete');
-Route::get('/crisis-edit/{id}',[CrisisController::class,'crisis_edit'])->name('crisis.edit');
 
 Route::get('/expense_cat_index',[Expense_categoryController::class,'index'])->name('index.expense_categories');
 Route::get('/expense_cat_createe',[Expense_categoryController::class,'create'])->name('create.expense_categories');
@@ -88,6 +82,15 @@ Route::get('/crisis-category-index',[CrisisCategoryController::class,'index'])->
 Route::get('/crisis-category-create',[CrisisCategoryController::class,'create'])->name('category.create');
 Route::post('/crisis-category-store',[CrisisCategoryController::class,'store'])->name('category.store');
 
+//Crisis Controller
+Route::get('/index',[CrisisController::class,'index'])->name('index.crisis');
+Route::get('/create',[CrisisController::class,'create'])->name('create.crisis');
+Route::post('/store',[CrisisController::class,'store'])->name('store.crisis');
+Route::get('/crisis-delete/{id}',[CrisisController::class,'crisis_delete'])->name('crisis.delete');
+Route::get('/crisis-edit/{id}',[CrisisController::class,'crisis_edit'])->name('crisis.edit');
+
+
+//expense controller
 Route::get('/expense_index',[ExpenseController::class,'index_expense'])->name('index.expense');
 Route::get('/expense_create',[ExpenseController::class,'create_expense'])->name('create.expense');
 Route::post('/expense_store',[ExpenseController::class,'store_expense'])->name('store.expense');
