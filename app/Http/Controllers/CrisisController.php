@@ -14,8 +14,8 @@ class CrisisController extends Controller
    public function index()
 
    {
-
-    return view('backend.pages.crisis.index');
+    $crises=Crisis::with('crises')->get();
+    return view('backend.pages.crisis.index',compact('crises'));
    }
 
    public function create()

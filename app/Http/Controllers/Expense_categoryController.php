@@ -17,13 +17,11 @@ class Expense_categoryController extends Controller
           public function store(Request $request ){
             $request->validate([
                 'name'=>'required',
-                'status'=>'required',
                 'description'=>'required'
               ]);
     Expense_category::create([
         // clm name=>$request->inpt fld
         "name" => $request->name,
-        "status"      =>$request->status,
         "description" => $request->description
     ]);
 

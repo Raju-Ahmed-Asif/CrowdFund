@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Crisis Name</th>
       <th scope="col">Amount</th>
       <th scope="col">Details</th>
       <th scope="col">Action</th>
@@ -12,13 +13,14 @@
     </tr>
   </thead>
  <tbody>
-  @foreach($expense as $key=>$item)
-  
+  @foreach($expenses as $key=>$item)
+
     <tr>
       <th scope="row">{{$key+1}}</th>
+      <td>{{$item->expenseCrisis->name}}</td>
       <td>{{$item->amount}}</td>
       <td>{{$item->details}}</td>
-    
+
       <td>
         <a class="btn btn-primary"  href="">View</a>
         <a class="btn btn-warning"  href="">Edit</a>

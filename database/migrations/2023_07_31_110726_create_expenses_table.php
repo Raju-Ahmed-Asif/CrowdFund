@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-
+            $table->foreignId('crisis_id')->constrained('crises')->cascadeOnDelete();
             $table->double('amount',10,2)->default(0.0);
             $table->string('details');
             $table->timestamps();

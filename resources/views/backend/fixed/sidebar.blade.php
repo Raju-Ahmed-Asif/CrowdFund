@@ -31,17 +31,18 @@
                                 Donor
                             </a>
 
+                            <a class="nav-link" href="{{route('index.expense')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Expense
+                            </a>
+
+
 
                               <a class="nav-link" href="{{route('index.expense_categories')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Expense Categories
                             </a>
 
-
-                             <a class="nav-link" href="{{route('index.expense')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Expense
-                            </a>
 
 
                              <a class="nav-link" href="{{route('crisis.report')}}">

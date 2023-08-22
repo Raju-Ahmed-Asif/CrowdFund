@@ -16,9 +16,8 @@
     <tr>
       <th scope="row">{{$key+1}}</th>
       <td>{{$item->name}}</td>
-      <td>{{$item->status}}</td>
       <td>{{$item->description}}</td>
-     
+
       <td>
       <a class="btn btn-primary"href="">Edit</a>
       <a class="btn btn-danger"href="" >Delete </a>

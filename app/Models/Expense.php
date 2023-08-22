@@ -10,4 +10,7 @@ class Expense extends Model
     use HasFactory;
 
     protected $guarded =[];
+    public function expenseCrisis(){
+        return $this->belongsTo(Crisis::class,'crisis_id', 'id');
+    }
 }

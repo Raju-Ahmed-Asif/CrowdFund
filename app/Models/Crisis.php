@@ -22,4 +22,9 @@ class Crisis extends Model
         return $this->hasMany(Donate::class);
     }
 
+    public function crises(){
+        return $this->belongsTo(VolunteerUser::class, 'volunteerUser_id','id');
+    }
+
+
 }
