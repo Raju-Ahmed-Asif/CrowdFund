@@ -26,8 +26,7 @@ class CrisisController extends Controller
 
    public function store(Request $request)
    {
-    // dd($request->all());
-
+     //dd($request->all());
 
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
@@ -35,6 +34,7 @@ class CrisisController extends Controller
         'from_date' => 'required|date|after_or_equal:today', // Validate that from_date is today or in the future
         'to_date' => 'required|date|after_or_equal:from_date', // Validate that to_date is after or equal to from_date
         'amount_need' => 'required|numeric|min:0',
+
         'about_crisis' => 'required|string',
         'image' => 'required',
 
@@ -45,6 +45,8 @@ class CrisisController extends Controller
 
         return redirect()->back()->withErrors($validator)->withInput();
     }
+
+
      //dd($request->all());
 
 
@@ -65,6 +67,7 @@ class CrisisController extends Controller
         "from_date"     => $request->from_date,
         "to_date"       => $request->to_date,
         "amount_need"   => $request->amount_need,
+        "goal"   => $request->goal,
         "volunteerUser_id"=>$request->volunteerUser_id,
         "about_crisis"=>$request->about_crisis,
         "image"         => $imageName,
@@ -72,6 +75,7 @@ class CrisisController extends Controller
 
     Alert::toast()->success('Crisis created', 'success');
      return redirect()->route('index.crisis');
+
    }
 
 
@@ -115,8 +119,13 @@ class CrisisController extends Controller
     // Calculate the percentage for each crisis
 
     // foreach ($crisis as $crisisItem) {
-    // $crisisItem->percentage = ($crisisItem->amount_raised / $crisisItem->amount_need) * 100;
-    // }
+    //     if ($crisisItem->amount_need > 0) {
+    //         $crisisItem->percentage = ($crisisItem->amount_need / $crisisItem->goal) * 100;
+    //     } else {
+    //         $crisisItem->percentage = 0; // Set the percentage to 0 to avoid division by zero
+       // }
+    //}
+
 
     return view('frontend.pages.crisis',compact('crisis'));
 
