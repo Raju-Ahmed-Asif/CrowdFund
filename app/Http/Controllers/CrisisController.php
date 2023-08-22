@@ -35,7 +35,6 @@ class CrisisController extends Controller
         'from_date' => 'required|date|after_or_equal:today', // Validate that from_date is today or in the future
         'to_date' => 'required|date|after_or_equal:from_date', // Validate that to_date is after or equal to from_date
         'amount_need' => 'required|numeric|min:0',
-        'amount_due' => 'required|numeric|min:0',
         'about_crisis' => 'required|string',
         'image' => 'required',
 
