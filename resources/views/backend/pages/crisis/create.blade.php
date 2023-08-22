@@ -12,7 +12,7 @@
     <label for="">Description</label>
     <input type="text" name="description" class="form-control" id="" placeholder="Enter description">
   </div>
-  
+
   <div class="form-group">
     <label for="formGroupExampleInput2">From Date</label>
     <input type="date" name="from_date" class="form-control" id="formGroupExampleInput2" placeholder=" Write please">
@@ -27,6 +27,11 @@
   </div>
 
   <div class="form-group">
+    <label for="">Amount Goal *[NOTE: Amount Need & Amount Goal Input Should be same ]*</label>
+    <input type="number" name="goal" class="form-control" id="" placeholder="Amount Need & Amount Goal Input Should be same ">
+  </div>
+
+  <div class="form-group">
     <label for="">Volunteers</label>
     <select name="volunteerUser_id" class="form-control" id="">
       @foreach ($volunteers as $value )
@@ -34,13 +39,13 @@
       @endforeach
     </select>
   </div>
-  
+
 
   <div class="form-group">
     <label for="">About_crisis</label>
     <input type="text" name="about_crisis" class="form-control" id="" placeholder=" ">
   </div>
-  
+
   <div class="form-group">
     <label for="formGroupExampleInput2">Image</label>
     <input type="file" name="image" class="form-control" id="formGroupExampleInput2">

@@ -37,8 +37,8 @@
                             </div>
                             <!-- / progress -->
                             <div class="prices d-flex justify-content-between">
-                                <p>Raised: <span> Tk.</span></p>
-                                <p>Goal: <span>{{ $item->amount_need }} Tk.</span></p>
+                                <p>Goal: <span>{{ $item->goal }} Tk.</span></p>
+                                <p>Remain: <span>{{ $item->amount_need }} Tk.</span></p>
                             </div>
                         </div>
                     </div>
