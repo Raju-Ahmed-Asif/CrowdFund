@@ -34,12 +34,15 @@
                         <h2 class="contact-title">PLEASE FILL OUT THIS FORM</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="{{ route('donate.store') }}" method="post" >
+                        <form class="form-contact contact_form" action="{{ route('donate.store') }}" method="post">
                             @csrf
+                            <!-- Add a hidden input field to store the crisis_id -->
+                            <input type="hidden" name="crisis_id" value="{{ $crisis->id }}">
+
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="suggestion" id="message" cols="30" rows="9"  placeholder=" Write suggestion here..."></textarea>
+                                        <textarea class="form-control w-100" name="suggestion" id="message" cols="30" rows="9" placeholder="Write suggestion here..."></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -49,12 +52,12 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email"  placeholder="Email">
+                                        <input class="form-control valid" name="email" id="email" type="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" id="Number" type="number" name="amount"   placeholder="Amount">
+                                        <input class="form-control" id="Number" type="number" name="amount" placeholder="Amount">
                                     </div>
                                 </div>
                             </div>
@@ -63,6 +66,7 @@
                             </div>
                         </form>
                     </div>
+
                     <div class="col-lg-3 offset-lg-1">
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-home"></i></span>

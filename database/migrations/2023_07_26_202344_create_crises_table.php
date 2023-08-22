@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name', 120);
             $table->string('status',10)->default('active');
             $table->text('description')->nullable();
+            $table->double('goal',10,2)->default(0.0);
             $table->double('amount_need',10,2)->default(0.0);
-            $table->double('amount_due',10,2)->default(0.0);
+            $table->double('amount_due',10,2)->nullable();
             $table->dateTime('from_date')->nullable();
             $table->dateTime('to_date')->nullable();
             $table->foreignId('volunteerUser_id');

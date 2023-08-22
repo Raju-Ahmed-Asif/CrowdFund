@@ -42,7 +42,7 @@ use App\Models\CrisisCategory;
  Route::get('/crisis-details/{id}',[CrisisController::class,'crisis_details'])->name('crisis.details');
 
  Route::get('/',[HomeController::class,'homepage'])->name('homepage');
- Route::get('donate-form',[DonateController::class,'donateForm'])->name('donate.form');
+ Route::get('donate-form/{crisisId}',[DonateController::class,'donateForm'])->name('donate.form');
  Route::post('donate-store',[DonateController::class,'donatestore'])->name('donate.store');
 
  Route::get('contactUs',[ContactCotroller::class,'contactUs'])->name('contact.us');
