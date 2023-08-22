@@ -118,13 +118,13 @@ class CrisisController extends Controller
 
     // Calculate the percentage for each crisis
 
-    foreach ($crisis as $crisisItem) {
-        if ($crisisItem->goal > 0) {
-            $crisisItem->percentage = ($crisisItem->goal / $crisisItem->amount_need) * 100;
-        } else {
-            $crisisItem->percentage = 0; // Set the percentage to 0 to avoid division by zero
-        }
-    }
+    // foreach ($crisis as $crisisItem) {
+    //     if ($crisisItem->amount_need > 0) {
+    //         $crisisItem->percentage = ($crisisItem->amount_need / $crisisItem->goal) * 100;
+    //     } else {
+    //         $crisisItem->percentage = 0; // Set the percentage to 0 to avoid division by zero
+       // }
+    //}
 
 
     return view('frontend.pages.crisis',compact('crisis'));

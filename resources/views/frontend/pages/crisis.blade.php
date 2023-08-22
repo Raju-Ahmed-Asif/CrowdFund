@@ -25,26 +25,35 @@
                             <!-- Progress Bar -->
                             <div class="single-skill mb-15">
                                 <div class="bar-progress">
-                                    <div id="bar{{ $loop->index }}" class="barfiller" style="background: #f1f1f1;">
+                                    {{-- <div id="bar{{ $loop->index }}" class="barfiller" >
                                         <div class="tipWrap">
                                             <span class="tip"></span>
                                         </div>
-                                        <strong>{{ intval($item->percentage) }} %</strong>
+                                        {{-- <strong>{{ intval($item->percentage) }} %</strong>
                                         <span class="fill" data-percentage="{{ $item->percentage }}" style="background: #0fb863;"></span>
 
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <!-- / progress -->
                             <div class="prices d-flex justify-content-between">
                                 <p>Goal: <span>{{ $item->goal }} Tk.</span></p>
-                                <p>Remain: <span>{{ $item->amount_need }} Tk.</span></p>
+                                <p>NEED MORE TO REACH: <span>{{ $item->amount_need }} Tk.</span></p>
                             </div>
                         </div>
                     </div>
+
+                    @if ($item->amount_need == 0)
+                    <button type="@disabled(true)" class="btn btn-success">THANK YOU GOAL COMPELETED</button>
+                    @else
+                    <div></div>
+                    @endif
+
+
                 </div>
             @endforeach
         </div>
+
     </div>
 </div>
 @endsection
