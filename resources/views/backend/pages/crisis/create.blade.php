@@ -9,6 +9,15 @@
       <input type="text" required name="name" class="form-control" id="formGroupExampleInput" placeholder="Enter crisis name...">
     </div>
   <div class="form-group">
+    <div class="form-group">
+        <label for="">Crisis Category Name</label>
+        <select name="crisisCategory_id" class="form-control" id="">
+          @foreach ($crisisCategories as $value )
+            <option  value="{{$value->id}}">{{$value->name}}</option>
+          @endforeach
+        </select>
+      </div>
+
     <label for="">Description</label>
     <input type="text" name="description" class="form-control" id="" placeholder="Enter description">
   </div>

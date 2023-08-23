@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Crisis;
 use App\Models\Expense;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ExpenseController extends Controller
 {
     public function index_expense(){
-        $expenses=Expense::with('expenseCrisis')->get();
+        $expenses=Expense::with('crisis')->get();
         // dd($expenses);
         return view("backend.pages.expense.index",compact('expenses'));
     }
@@ -32,7 +33,8 @@ class ExpenseController extends Controller
          "details"    => $request-> details
 
         ]);
-        return redirect()->route('index.expense');
+           Alert::toast()->success('created successfully');
+        return redirect()->back(); 
 
 
 

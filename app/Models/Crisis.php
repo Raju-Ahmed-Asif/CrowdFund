@@ -2,16 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Donor;
-use App\Models\Donate;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Crisis extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
     public function crido(){
         return $this->belongsTo(Donor::class,'donor_id','id');
@@ -22,9 +18,11 @@ class Crisis extends Model
         return $this->hasMany(Donate::class);
     }
 
-    public function crises(){
+    public function volunteer(){
         return $this->belongsTo(VolunteerUser::class, 'volunteerUser_id','id');
     }
-
+    public function category(){
+        return $this->belongsTo(CrisisCategory::class, 'crisisCategory_id', 'id');
+    }
 
 }

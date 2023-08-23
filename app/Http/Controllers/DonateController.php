@@ -55,9 +55,6 @@ class DonateController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-
-
-
         // dd($request->all());
 
         Donate::create([

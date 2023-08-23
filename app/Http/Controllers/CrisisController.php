@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donor;
 use App\Models\Crisis;
+use App\Models\CrisisCategory;
 use App\Models\VolunteerUser;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -14,22 +15,26 @@ class CrisisController extends Controller
    public function index()
 
    {
-    $crises=Crisis::with('crises')->get();
+    $crises=Crisis::with([ 'volunteer' ,'category'])->get();
+    // dd($crises);
     return view('backend.pages.crisis.index',compact('crises'));
    }
 
    public function create()
    {
+
     $volunteers= VolunteerUser::all();
-     return view('backend.pages.crisis.create', compact('volunteers'));
+    $crisisCategories=CrisisCategory::all();
+     return view('backend.pages.crisis.create', compact('volunteers','crisisCategories'));
    }
 
    public function store(Request $request)
    {
-     //dd($request->all());
+    //  dd($request->all());
 
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
+        'crisisCategory_id'=>'required',
         'description' => 'required|string',
         'from_date' => 'required|date|after_or_equal:today', // Validate that from_date is today or in the future
         'to_date' => 'required|date|after_or_equal:from_date', // Validate that to_date is after or equal to from_date
@@ -63,6 +68,7 @@ class CrisisController extends Controller
     }
     Crisis::create([
         "name"          => $request->name,
+        "crisisCategory_id"=>$request->crisisCategory_id,
         "description"   => $request->description,
         "from_date"     => $request->from_date,
         "to_date"       => $request->to_date,

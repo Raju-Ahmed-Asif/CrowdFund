@@ -17,7 +17,7 @@
 
     <tr>
       <th scope="row">{{$key+1}}</th>
-      <td>{{$item->expenseCrisis->name}}</td>
+      <td>{{$item->crisis->name}}</td>
       <td>{{$item->amount}}</td>
       <td>{{$item->details}}</td>
 

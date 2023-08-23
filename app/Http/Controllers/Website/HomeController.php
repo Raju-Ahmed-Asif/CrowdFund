@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Crisis;
 use App\Models\VolunteerUser;
 use Faker\Guesser\Name;
 use GuzzleHttp\Psr7\Request as Psr7Request;
@@ -14,7 +15,8 @@ class HomeController extends Controller
     public function homepage(){
 
 
-        return view('frontend.pages.home');
+        $crisis=Crisis::all();
+        return view('frontend.pages.home',compact('crisis'));
     }
     public function registration(){
 

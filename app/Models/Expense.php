@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     use HasFactory;
-
     protected $guarded =[];
-    public function expenseCrisis(){
-        return $this->belongsTo(Crisis::class,'crisis_id', 'id');
+
+    public function crisis(){
+        return $this->belongsTo(Crisis::class, 'crisis_id', 'id');
     }
 }
