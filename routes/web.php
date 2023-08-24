@@ -88,6 +88,9 @@ Route::get('/create',[CrisisController::class,'create'])->name('create.crisis');
 Route::post('/store',[CrisisController::class,'store'])->name('store.crisis');
 Route::get('/crisis-delete/{id}',[CrisisController::class,'crisis_delete'])->name('crisis.delete');
 Route::get('/crisis-edit/{id}',[CrisisController::class,'crisis_edit'])->name('crisis.edit');
+Route::put('/crisis-update/{id}',[CrisisController::class,'crisis_update'])->name('update.crisis');
+
+
 
 
 //expense controller

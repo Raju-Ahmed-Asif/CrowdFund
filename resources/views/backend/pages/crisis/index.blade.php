@@ -36,6 +36,10 @@
                             height:100px;"
                     src="{{url('public/uploads/',$value->image)}}" alt="image">
                 </td>
+                <td>
+                    <a  class="btn btn-warning" href="{{route('crisis.edit',$value->id)}}">edit</a>
+                    <a  class="btn btn-danger" href="">delete</a>
+                </td>
             </tr>
 
             @endforeach

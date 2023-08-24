@@ -28,6 +28,8 @@ class CrisisController extends Controller
      return view('backend.pages.crisis.create', compact('volunteers','crisisCategories'));
    }
 
+
+
    public function store(Request $request)
    {
     //  dd($request->all());
@@ -146,10 +148,44 @@ class CrisisController extends Controller
 
 
   public function crisis_edit($id){
+
     $crisis=Crisis::find($id);
-    return view('backend.pages.crisis.edit',compact('crisis'));
+     $crisisCategories=CrisisCategory::all();
+     $volunteers=VolunteerUser::all();
+
+     return view('backend.pages.crisis.editCrisis',compact('crisis','crisisCategories','volunteers'));
 
   }
+
+  public function crisis_update(Request $request,$id){
+    $crisis=Crisis::find($id);
+
+    $imageName = null;
+    if ($request->hasFile('image')) {
+      $file = $request->file('image');
+      $imageName = date('Ymdis').'.'.$file->extension();
+      $file->storeAs('uploads', $imageName, 'public');
+
+    }
+
+    $crisis->update([
+        "name"          => $request->name,
+        "crisisCategory_id"=>$request->crisisCategory_id,
+        "description"   => $request->description,
+        "from_date"     => $request->from_date,
+        "to_date"       => $request->to_date,
+        "amount_need"   => $request->amount_need,
+        "goal"   => $request->goal,
+        "volunteerUser_id"=>$request->volunteerUser_id,
+        "about_crisis"=>$request->about_crisis,
+        "image"         => $imageName,
+
+    ]);
+
+    return redirect()->back();
+}
+
+
 
 
 
