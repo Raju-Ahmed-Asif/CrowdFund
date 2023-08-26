@@ -34,9 +34,38 @@ class ExpenseController extends Controller
 
         ]);
            Alert::toast()->success('created successfully');
-        return redirect()->back(); 
+        return redirect()->back();
 
 
 
     }
+
+    public function expense_edit($id){
+
+        $expense=Expense::find($id);
+        $crisis=Crisis::all();
+
+
+         return view('backend.pages.expense.editExpense',compact('expense','crisis'));
+
+      }
+
+      public function expense_update( Request $request,$id){
+
+     $expense=Expense::find($id);
+
+     $expense->update([
+
+        "crisis_id"     => $request->crisis_id,
+        "amount"     => $request-> amount,
+        "details"    => $request-> details
+
+     ]);
+     return redirect()->back();
+
+
+
+
+      }
+
 }

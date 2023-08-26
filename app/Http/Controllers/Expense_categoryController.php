@@ -27,4 +27,36 @@ class Expense_categoryController extends Controller
 
     return redirect()->route('index.expense_categories');
     }
-}
+
+    Public function expense_cat_edit($id){
+
+        $expense_category=Expense_category::find($id);
+
+
+        return view('backend.pages.expense_categories.editExpenseCategory',compact('expense_category'));
+
+        }
+
+        public function expense_category_update(Request $request,$id){
+         $expense_category=Expense_category::find($id);
+         $expense_category->update([
+
+
+            "name" => $request->name,
+            "description" => $request->description
+
+
+
+         ]);
+         return back();
+
+
+
+        }
+
+
+
+    }
+
+
+

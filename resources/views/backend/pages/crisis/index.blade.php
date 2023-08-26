@@ -38,7 +38,7 @@
                 </td>
                 <td>
                     <a  class="btn btn-warning" href="{{route('crisis.edit',$value->id)}}">edit</a>
-                    <a  class="btn btn-danger" href="">delete</a>
+                <a  class="btn btn-danger" href="{{route('crisis.delete',$value->id)}}">delete</a>
                 </td>
             </tr>
 

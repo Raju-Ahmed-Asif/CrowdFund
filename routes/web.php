@@ -41,6 +41,7 @@ use App\Models\CrisisCategory;
  Route::get('/frontend-crisis',[CrisisController::class,'frontend_crisis'])->name('frontend.crisis');
  Route::get('/crisis-details/{id}',[CrisisController::class,'crisis_details'])->name('crisis.details');
 
+ //Donate
  Route::get('/',[HomeController::class,'homepage'])->name('homepage');
  Route::get('donate-form/{crisisId}',[DonateController::class,'donateForm'])->name('donate.form');
  Route::post('donate-store',[DonateController::class,'donatestore'])->name('donate.store');
@@ -64,10 +65,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+//Expense category
 
 Route::get('/expense_cat_index',[Expense_categoryController::class,'index'])->name('index.expense_categories');
 Route::get('/expense_cat_createe',[Expense_categoryController::class,'create'])->name('create.expense_categories');
 Route::post('/expense_cat_storee',[Expense_categoryController::class,'store'])->name('store.expense_category');
+Route::get('/expense_cat-edit/{id}',[Expense_categoryController::class,'expense_cat_edit'])->name('expense_cat.edit');
+Route::post('/expense_cat-update/{id}',[Expense_categoryController::class,'expense_category_update'])->name('update.expense_category');
+
 Route::get('/donation',[DonationController::class,'index_donation'])->name('index.donation');
 Route::get('/donor_index',[DonorController::class,'index_donor'])->name('index.donor');
 Route::get('/donor_create',[DonorController::class,'create_donor'])->name('create.donor');
@@ -88,7 +93,7 @@ Route::get('/create',[CrisisController::class,'create'])->name('create.crisis');
 Route::post('/store',[CrisisController::class,'store'])->name('store.crisis');
 Route::get('/crisis-delete/{id}',[CrisisController::class,'crisis_delete'])->name('crisis.delete');
 Route::get('/crisis-edit/{id}',[CrisisController::class,'crisis_edit'])->name('crisis.edit');
-Route::put('/crisis-update/{id}',[CrisisController::class,'crisis_update'])->name('update.crisis');
+Route::post('/crisis-update/{id}',[CrisisController::class,'crisis_update'])->name('update.crisis');
 
 
 
@@ -97,6 +102,8 @@ Route::put('/crisis-update/{id}',[CrisisController::class,'crisis_update'])->nam
 Route::get('/expense_index',[ExpenseController::class,'index_expense'])->name('index.expense');
 Route::get('/expense_create',[ExpenseController::class,'create_expense'])->name('create.expense');
 Route::post('/expense_store',[ExpenseController::class,'store_expense'])->name('store.expense');
+Route::get('/expense-edit/{id}',[ExpenseController::class,'expense_edit'])->name('expense.edit');
+Route::post('/expense-update/{id}',[ExpenseController::class,'expense_update'])->name('update.expense');
 
 //Report Crisis
 Route::get('/crisis-report',[CrisisController::class,'crisis_report'])->name('crisis.report');

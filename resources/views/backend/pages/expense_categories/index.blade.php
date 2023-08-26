@@ -5,8 +5,8 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Status</th>
+      <th scope="col"> Expense Category Name</th>
+      <th>Status</th>
       <th scope="col">Description</th>
       <th scope="col">Action</th>
     </tr>
@@ -15,11 +15,13 @@
   @foreach($expense as $key=> $item)
     <tr>
       <th scope="row">{{$key+1}}</th>
+
       <td>{{$item->name}}</td>
+      <td>{{$item->status}}</td>
       <td>{{$item->description}}</td>
 
       <td>
-      <a class="btn btn-primary"href="">Edit</a>
+      <a class="btn btn-primary"href="{{route('expense_cat.edit',$item->id)}}">Edit</a>
       <a class="btn btn-danger"href="" >Delete </a>
       <a class="btn btn-danger"href="" >Update</a>
       </td>

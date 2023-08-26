@@ -185,12 +185,13 @@ class CrisisController extends Controller
     return redirect()->back();
 }
 
+public function crisis_delete($id){
 
+    Crisis::destroy($id);
 
+    Alert::toast()->error('Deleted');
 
-
-
-
-
+    return back();
+}
 
 }

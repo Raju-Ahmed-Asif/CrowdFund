@@ -57,17 +57,12 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="{{ route('homepage') }}">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
+
                                             <li><a href="{{route('frontend.crisis')}}">Crisis</a></li>
-                                            <li><a href="events.html">social events </a></li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog_details.html">Blog Details</a></li>
-                                                    <li><a href="elements.html">Element</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="">Volunteers</a></li>
+
                                             <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="about.html">About</a></li>
                                             <li><a href="{{route('registration')}}">Registration</a></li>
 
                                         </ul>
