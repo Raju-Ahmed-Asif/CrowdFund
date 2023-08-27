@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\LocationController;
 use App\Models\CrisisCategory;
 
 /*
@@ -38,11 +39,15 @@ use App\Models\CrisisCategory;
  Route::get('/registration-form',[HomeController::class,'registration'])->name('registration');
  Route::post('/registration-store',[HomeController::class,'registration_store'])->name('registration.store');
 
+ Route::post('/location',[HomeController::class,'location'])->name('home.loaction');
+
  Route::get('/frontend-crisis',[CrisisController::class,'frontend_crisis'])->name('frontend.crisis');
  Route::get('/crisis-details/{id}',[CrisisController::class,'crisis_details'])->name('crisis.details');
 
  //Donate
  Route::get('/',[HomeController::class,'homepage'])->name('homepage');
+
+//  Route::get('donate/index',[DonateController::class,'donateIndex'])->name('donate.index');
  Route::get('donate-form/{crisisId}',[DonateController::class,'donateForm'])->name('donate.form');
  Route::post('donate-store',[DonateController::class,'donatestore'])->name('donate.store');
 
@@ -113,5 +118,10 @@ Route::get('/crisis-search',[CrisisController::class,'crisis_search'])->name('cr
 
 Route::get('/donor-report',[DonorController::class,'donor_report'])->name('donor.report');
 
+
+//Location
+Route::get('/location_index',[LocationController::class,'index'])->name('location.index');
+Route::get('/location_create',[LocationController::class,'create'])->name('location.create');
+Route::post('/location_store',[LocationController::class,'store'])->name('location.store');
 
 });

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Validator;
 
 class DonateController extends Controller
 {
+
+
     public function donateForm($crisisId){
 
         $crisis = Crisis::find($crisisId);

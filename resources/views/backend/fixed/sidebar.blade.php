@@ -3,10 +3,14 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" #">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+
+
+
+
 
                             <a class="nav-link" href="{{route('index.volunteer')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -24,7 +28,10 @@
                                 Crisis
                             </a>
 
-
+                              <a class="nav-link" href="{{route('location.index')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Location
+                            </a>
 
                             <a class="nav-link" href="{{route('index.donor')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -61,10 +68,6 @@
                                 Location
                             </a>
 
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                No idea
-                            </a>
 
 
 

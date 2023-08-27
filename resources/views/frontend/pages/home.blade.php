@@ -16,14 +16,14 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".6s">Our Helping to<br> the world.</h1>
-                                <P data-animation="fadeInUp" data-delay=".8s" >Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut bore et dolore magnt, sed do eiusmod.</P>
+                                <h1 data-animation="fadeInUp" data-delay=".6s">Donate for the poor people<br>and make the world happy.</h1>
+                                <P data-animation="fadeInUp" data-delay=".8s" >Here donate for the poor people when any crisis happen.Your Donation can save a life</P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
-                                    <a href="industries.html" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
+                                  
                                     <a href="industries.html" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
                                         <i class="flaticon-null"></i>
-                                        <p>+12 1325 41</p>
+                                        <p>01957503458</p>
                                     </a>
                                 </div>
                             </div>
@@ -105,6 +105,12 @@
         </div>
     </div>
 
+{{-- donate  --}}
+
+
+
+
+
     <!--? Team Ara Start -->
     <div class="team-area pt-160 pb-160">
         <div class="container">
@@ -121,23 +127,12 @@
 
 
 
-
-
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-team mb-30">
                         <div class="team-img">
-                            <img src="" alt="image">
-                            <!-- Blog Social -->
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fas fa-globe"></i></a></li>
-                            </ul>
                         </div>
                         <div class="team-caption">
                             <p>Volunteer leader</p>
-
-
 
                         </div>
                     </div>
@@ -148,13 +143,39 @@
 
 
 
-                
+
 
             </div>
         </div>
     </div>
     <!-- Team Ara End -->
     <!-- Want To work -->
+
+
+{{-- loaction area --}}
+
+    <section>
+        <div class="container">
+            <h1 class="text-center"><strong>Locations</strong></h1>
+            <hr>
+            <div class="row">
+                @foreach ($locations as $value )
+                <div class="col-md-4">
+                    <div class="card bg-success mb-5">
+                        <div class="card-header">
+                            <div class="card-body">
+                                <p class="text-white"><span>Crisis Name:</span>{{$value->crisisLocation->name}}</p>
+                                <p class="text-white"> <span>Location:</span></span> {{$value->location}}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    {{-- location area end --}}
     <section class="wantToWork-area ">
         <div class="container">
             <div class="wants-wrapper w-padding2  section-bg" data-background="{{asset ('frontend/assets/img/gallery/section_bg01.png') }}">

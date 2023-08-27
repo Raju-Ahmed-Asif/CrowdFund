@@ -6,6 +6,7 @@ use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Crisis;
+use App\Models\Location;
 use App\Models\VolunteerUser;
 use Faker\Guesser\Name;
 use GuzzleHttp\Psr7\Request as Psr7Request;
@@ -16,8 +17,18 @@ class HomeController extends Controller
 
 
         $crisis=Crisis::all();
-        return view('frontend.pages.home',compact('crisis'));
+        $locations=Location::all();
+        return view('frontend.pages.home',compact('crisis','locations'));
     }
+
+
+    public function location(){
+        $locations= Location::all();
+        return view('frontend.pages.home',compact('locations'));
+    }
+
+
+
     public function registration(){
 
         return view('frontend.pages.volunteers.create');
