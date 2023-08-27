@@ -67,14 +67,15 @@ Route::get('/admin_profile',[ProfileController::class,'admin_profile'])->name('a
 Route::get('/login-form',[AuthController::class,'login'])->name('login');
 Route::post('/do-login',[AuthController::class,'do_login'])->name('do.login');
 
-
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard')->middleware('auth');
 
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 
-Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+
+Route::post('/admin_profile/{id}',[ProfileController::class,'update'])->name('admin.update');
 //Expense category
 
 Route::get('/expense_cat_index',[Expense_categoryController::class,'index'])->name('index.expense_categories');

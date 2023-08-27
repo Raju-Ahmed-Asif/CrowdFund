@@ -116,7 +116,8 @@ section {
             <div class="col-lg-12 mb-4 mb-sm-5">
                 <div class="card card-style1 border-0">
 
-                    <form action="" method="POST">
+                    <form action="{{route('admin.update',auth()->user()->id)}}" method="POST">
+                        @csrf
                     <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
 
 
@@ -132,13 +133,14 @@ section {
 
                                 </div>
                                 <ul class="list-unstyled mb-1-9">
-                                    <strong>Email: </strong><br><input  class="mb-2 mb-xl-3 display-28" value=" {{auth()->user()->email}}"> </input><br>
-                                   <strong>Address:</strong><br> <input class="mb-2 mb-xl-3 display-28" value=" {{auth()->user()->address}}">  </input><br>
-                                   <strong>Phone:  </strong><br> <input class="mb-2 mb-xl-3 display-28" value=" {{auth()->user()->phone}}">  </input>
+                                    <strong>Name: </strong><br><input  class="mb-2 mb-xl-3 display-28" name="name" value=" {{auth()->user()->name}}"> </input><br>
+                                    <strong>Email: </strong><br><input  class="mb-2 mb-xl-3 display-28" name="email" value=" {{auth()->user()->email}}"> </input><br>
+                                   <strong>Address:</strong><br> <input class="mb-2 mb-xl-3 display-28" name="address" value=" {{auth()->user()->address}}">  </input><br>
+                                   <strong>Phone:  </strong><br> <input class="mb-2 mb-xl-3 display-28" name="phone" value=" {{auth()->user()->phone}}">  </input>
 
 
                                 </ul>
-                                <button type="submit">
+                                <button type="submit ">
                                     Update
                                 </button>
                             </div>
