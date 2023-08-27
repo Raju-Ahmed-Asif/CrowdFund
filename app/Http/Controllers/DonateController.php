@@ -65,6 +65,7 @@ class DonateController extends Controller
             "email" => $request->email,
             "amount" => $request->amount,
             "crisis_id" => $request->crisis_id,
+
         ]);
 
         $crisis->update([
@@ -74,5 +75,12 @@ class DonateController extends Controller
 
         Alert::toast()->success('Donation made successfully', 'success');
         return redirect()->back();
+    }
+
+    public function donateinfo(){
+
+        //dd('donateinfo');
+        $donate = Donate::all();
+        return view('frontend.pages.volunteers.donartinfo',compact('donate'));
     }
 }

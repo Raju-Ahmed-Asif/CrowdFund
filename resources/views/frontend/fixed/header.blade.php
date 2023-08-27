@@ -24,7 +24,7 @@
                                             <li><a href="">Volunteers</a></li>
 
                                             <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="{{url('/donate-info')}}">See Donors</a></li>
                                             <li><a href="{{route('registration')}}">Registration</a></li>
 
                                         </ul>
@@ -32,7 +32,7 @@
                                 </div>
                                 <!-- Header-btn -->
                                 <div class="header-right-btn d-none d-lg-block ml-20">
-                                   
+
                                 </div>
                             </div>
                         </div>

@@ -7,7 +7,7 @@ use App\Models\Donor;
 
 class DonorController extends Controller
 {
- 
+
     public function index_donor(){
 
       $donor=Donor::all();
@@ -17,7 +17,7 @@ class DonorController extends Controller
     {
       return view('backend.pages.donor.create');
     }
-    
+
  public function store_donor(Request $request)
    {
     $request->validate([
@@ -33,7 +33,7 @@ class DonorController extends Controller
         "date_of_birth"     => $request->date_of_birth,
         "gender"            => $request->gender,
         "phone"             => $request->phone
-        
+
     ]);
      return redirect()->route('index.donor');
    }
@@ -44,6 +44,7 @@ class DonorController extends Controller
       return view('backend.pages.donor.donorReport');
 
      }
+     
 
     }
 

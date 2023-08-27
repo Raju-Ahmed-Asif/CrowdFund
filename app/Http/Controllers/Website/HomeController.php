@@ -18,7 +18,8 @@ class HomeController extends Controller
 
         $crisis=Crisis::all();
         $locations=Location::all();
-        return view('frontend.pages.home',compact('crisis','locations'));
+        $vol = VolunteerUser::all();
+        return view('frontend.pages.home',compact('crisis','locations','vol'));
     }
 
 

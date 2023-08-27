@@ -20,7 +20,7 @@
                                 <P data-animation="fadeInUp" data-delay=".8s" >Here donate for the poor people when any crisis happen.Your Donation can save a life</P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
-                                  
+
                                     <a href="industries.html" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
                                         <i class="flaticon-null"></i>
                                         <p>01957503458</p>
@@ -127,15 +127,31 @@
 
 
 
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-team mb-30">
-                        <div class="team-img">
-                        </div>
-                        <div class="team-caption">
-                            <p>Volunteer leader</p>
 
+
+
+
+
+
+
+                    <div class="row">
+
+                        @foreach ($vol as $item)
+                        <div class="col-sm-6"><br>
+
+                          <div class="card">
+
+                            <div class="card-body">
+                              <h1 class="card-title">Volunteer Name <strong> :{{$item->name}}</strong></h1>
+                              <p class="card-text">Email: :{{$item->email}}</p>
+                              <p class="card-text">Phone: :{{$item->phone}}</p>
+                              <a href="{{url('/')}}" class="btn btn-primary">Click here to go home</a>
+                            </div>
+                          </div>
                         </div>
-                    </div>
+                        @endforeach
+                      </div>
+
                 </div>
 
 
@@ -186,7 +202,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
-                        <a href="{{route('registration')}}" class="btn white-btn f-right sm-left">Become A Volunteer</a>
+                        <a href="{{url('/registration-form')}}" class="btn white-btn f-right sm-left">Become A Volunteer</a>
                     </div>
                 </div>
             </div>

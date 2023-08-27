@@ -34,6 +34,7 @@ use App\Models\CrisisCategory;
 
 
 //frontend
+Route::get('/donate-info',[DonateController::class,'donateinfo'])->name('donate.info');
  Route::get('/volunteerLogin',[HomeController::class,'login'])->name('volunteer.login');
  Route::post('/login-match',[HomeController::class,'login_match'])->name('login_match');
  Route::get('/registration-form',[HomeController::class,'registration'])->name('registration');
@@ -50,6 +51,7 @@ use App\Models\CrisisCategory;
 //  Route::get('donate/index',[DonateController::class,'donateIndex'])->name('donate.index');
  Route::get('donate-form/{crisisId}',[DonateController::class,'donateForm'])->name('donate.form');
  Route::post('donate-store',[DonateController::class,'donatestore'])->name('donate.store');
+
 
  Route::get('contactUs',[ContactCotroller::class,'contactUs'])->name('contact.us');
 
