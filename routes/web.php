@@ -15,6 +15,7 @@ use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ProfileController;
 use App\Models\CrisisCategory;
 
 /*
@@ -34,7 +35,9 @@ use App\Models\CrisisCategory;
 
 
 //frontend
-Route::get('/donate-info',[DonateController::class,'donateinfo'])->name('donate.info');
+
+Route::get('/admin_profile',[ProfileController::class,'admin_profile'])->name('admin.profile');
+ Route::get('/donate-info',[DonateController::class,'donateinfo'])->name('donate.info');
  Route::get('/volunteerLogin',[HomeController::class,'login'])->name('volunteer.login');
  Route::post('/login-match',[HomeController::class,'login_match'])->name('login_match');
  Route::get('/registration-form',[HomeController::class,'registration'])->name('registration');
