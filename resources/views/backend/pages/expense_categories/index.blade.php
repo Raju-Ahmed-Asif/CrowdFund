@@ -22,8 +22,8 @@
 
       <td>
       <a class="btn btn-primary"href="{{route('expense_cat.edit',$item->id)}}">Edit</a>
-      <a class="btn btn-danger"href="" >Delete </a>
-      <a class="btn btn-danger"href="" >Update</a>
+      <a class="btn btn-danger"href="{{route('expense.category.delete',$item->id)}}" >Delete </a>
+
       </td>
 
     </tr>

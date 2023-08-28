@@ -14,6 +14,7 @@
       <th scope="col">Volunteer Name</th>
       <th scope="col">About Crisis</th>
       <th scope="col">Image</th>
+      <th scope="col">Action</th>
 
     </tr>
   </thead>

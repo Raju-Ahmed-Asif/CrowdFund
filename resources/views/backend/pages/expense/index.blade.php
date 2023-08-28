@@ -22,9 +22,9 @@
       <td>{{$item->details}}</td>
 
       <td>
-        <a class="btn btn-primary"  href="">View</a>
+
         <a class="btn btn-warning"  href="{{route('expense.edit',$item->id)}}">Edit</a>
-        <a  class="btn btn-danger" href="">Delete</a>
+        <a  class="btn btn-danger" href="{{route('expense.delete',$item->id)}}">Delete</a>
       </td>
     </tr>
      @endforeach

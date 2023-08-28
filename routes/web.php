@@ -17,6 +17,8 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProfileController;
 use App\Models\CrisisCategory;
+use App\Models\Expense;
+use App\Models\VolunteerUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +85,7 @@ Route::get('/expense_cat_createe',[Expense_categoryController::class,'create'])-
 Route::post('/expense_cat_storee',[Expense_categoryController::class,'store'])->name('store.expense_category');
 Route::get('/expense_cat-edit/{id}',[Expense_categoryController::class,'expense_cat_edit'])->name('expense_cat.edit');
 Route::post('/expense_cat-update/{id}',[Expense_categoryController::class,'expense_category_update'])->name('update.expense_category');
+Route::get('/expense-cat-delete/{id}',[Expense_categoryController::class,'expense_cat_delete'])->name('expense.category.delete');
 
 Route::get('/donation',[DonationController::class,'index_donation'])->name('index.donation');
 Route::get('/donor_index',[DonorController::class,'index_donor'])->name('index.donor');
@@ -97,6 +100,10 @@ Route::get('/volunteer_index',[VolunteerController::class,'index'])->name('index
 Route::get('/crisis-category-index',[CrisisCategoryController::class,'index'])->name('category.index');
 Route::get('/crisis-category-create',[CrisisCategoryController::class,'create'])->name('category.create');
 Route::post('/crisis-category-store',[CrisisCategoryController::class,'store'])->name('category.store');
+Route::get('/crisis-category-edit/{id}',[CrisisCategoryController::class,'crisis_category_edit'])->name('crisis.category.edit');
+Route::post('/crisis-category-update/{id}',[CrisisCategoryController::class,'crisis_category_update'])->name('update.crisis.category');
+Route::get('/crisis-category-delete/{id}',[CrisisCategoryController::class,'crisis_category_delete'])->name('crisis.category.delete');
+
 
 //Crisis Controller
 Route::get('/index',[CrisisController::class,'index'])->name('index.crisis');
@@ -115,6 +122,7 @@ Route::get('/expense_create',[ExpenseController::class,'create_expense'])->name(
 Route::post('/expense_store',[ExpenseController::class,'store_expense'])->name('store.expense');
 Route::get('/expense-edit/{id}',[ExpenseController::class,'expense_edit'])->name('expense.edit');
 Route::post('/expense-update/{id}',[ExpenseController::class,'expense_update'])->name('update.expense');
+Route::get('/expense-delete/{id}',[ExpenseController::class,'expense_delete'])->name('expense.delete');
 
 //Report Crisis
 Route::get('/crisis-report',[CrisisController::class,'crisis_report'])->name('crisis.report');
@@ -129,5 +137,7 @@ Route::get('/donor-report',[DonorController::class,'donor_report'])->name('donor
 Route::get('/location_index',[LocationController::class,'index'])->name('location.index');
 Route::get('/location_create',[LocationController::class,'create'])->name('location.create');
 Route::post('/location_store',[LocationController::class,'store'])->name('location.store');
+Route::get('/location-delete/{id}',[LocationController::class,'location_delete'])->name('location.delete');
 
+Route::get('/volunteer-delete/{id}',[VolunteerController::class,'volunteer_delete'])->name('volunteer.delete');
 });

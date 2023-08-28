@@ -21,6 +21,9 @@ class VolunteerController extends Controller
         return view('backend.pages.volunteer.create',compact('crisis'));
     }
 
+
+
+
     public function store_volunteer (Request $request){
         /* $request->validate([
             'name'=>'required',
@@ -61,6 +64,12 @@ class VolunteerController extends Controller
     }
 
 
+    public function volunteer_delete($id){
 
+        VolunteerUser::destroy($id);
 
+        Alert::toast()->error('Deleted');
+
+        return back();
+    }
 }

@@ -24,8 +24,8 @@
             <td>{{$category->name}}</td>
             <td>{{$category->status}}</td>
             <td>
-                <a  class="btn btn-warning" href="">edit</a>
-                <a  class="btn btn-danger" href="">delete</a>
+                <a  class="btn btn-warning" href="{{route('crisis.category.edit',$category->id)}}">edit</a>
+                <a  class="btn btn-danger" href="{{route('crisis.category.delete',$category->id)}}">delete</a>
             </td>
         </tr>
         @endforeach

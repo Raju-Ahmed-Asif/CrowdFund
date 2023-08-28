@@ -20,6 +20,9 @@
                 <td>{{$value->id}}</td>
                 <td>{{$value->crisisLocation->name}}</td>
                 <td>{{$value->location}}</td>
+                <td>
+                    <a  class="btn btn-danger" href="{{route('location.delete',$value->id)}}">delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

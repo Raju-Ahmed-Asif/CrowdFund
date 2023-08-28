@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CrisisCategory;
 use Illuminate\Http\Request;
+use App\Models\CrisisCategory;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CrisisCategoryController extends Controller
 {
@@ -30,4 +31,37 @@ class CrisisCategoryController extends Controller
     return redirect()->back();
 
    }
+
+   public function crisis_category_edit($id){
+
+    $catData=CrisisCategory::find($id);
+
+
+     return view('backend.pages.crisisCategories.editCrisisCategory',compact('catData'));
+
+  }
+
+  public function crisis_category_update(Request $request,$id){
+    $catData=CrisisCategory::find($id);
+
+    $catData->update([
+        "name"          => $request->name,
+
+    ]);
+
+    return redirect()->back();
+}
+
+
+public function crisis_category_delete($id){
+
+    CrisisCategory::destroy($id);
+
+    Alert::toast()->error('Deleted');
+
+    return back();
+}
+
+
+
 }

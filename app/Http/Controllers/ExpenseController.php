@@ -63,9 +63,15 @@ class ExpenseController extends Controller
      ]);
      return redirect()->back();
 
-
-
-
       }
+
+      public function expense_delete($id){
+
+        Expense::destroy($id);
+
+        Alert::toast()->error('Deleted');
+
+        return back();
+    }
 
 }

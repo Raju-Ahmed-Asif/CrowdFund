@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Expense_category;
-
 use Illuminate\Http\Request;
+
+use App\Models\Expense_category;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Expense_categoryController extends Controller
 {
@@ -27,6 +28,15 @@ class Expense_categoryController extends Controller
 
     return redirect()->route('index.expense_categories');
     }
+    public function expense_cat_delete($id){
+
+        Expense_category::destroy($id);
+
+        Alert::toast()->error('Deleted');
+
+        return back();
+    }
+
 
     Public function expense_cat_edit($id){
 
@@ -49,6 +59,7 @@ class Expense_categoryController extends Controller
 
          ]);
          return back();
+
 
 
 

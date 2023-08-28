@@ -28,9 +28,9 @@
 
 
       <td>
-        <a class="btn btn-primary"  href="">View</a>
-        <a class="btn btn-warning"  href="">Edit</a>
-        <a  class="btn btn-danger" href="">Delete</a>
+
+
+        <a  class="btn btn-danger" href="{{route('volunteer.delete',$volunteer->id)}}">Delete</a>
       </td>
     </tr>
     @endforeach
