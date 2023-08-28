@@ -26,6 +26,11 @@
                             <div class="form-group">
                             <label for="formGroupExampleInput2">Phone</label>
                             <input type="number" required name="phone" class="form-control" id="formGroupExampleInput2" placeholder="Write Please">
+                            @error('phone')
+
+                            <strong class="text-danger">{{$message}}</strong>
+
+                            @enderror
                             </div>
 
                             <div class="form-group">

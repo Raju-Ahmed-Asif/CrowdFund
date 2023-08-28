@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Models\Crisis;
+use Faker\Guesser\Name;
+use App\Models\Location;
 use App\Models\Registration;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Crisis;
-use App\Models\Location;
 use App\Models\VolunteerUser;
-use Faker\Guesser\Name;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 use GuzzleHttp\Psr7\Request as Psr7Request;
 
 class HomeController extends Controller
@@ -41,10 +42,15 @@ class HomeController extends Controller
 
             'name'=>'required',
             'email'=>'required',
-            'phone'=>'required',
-            'address'=>'required',
+            'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'address'=>'required'
 
         ]);
+
+
+
+
+
         VolunteerUser::create([
             'name' =>$request->name,
             'email' =>$request->email,

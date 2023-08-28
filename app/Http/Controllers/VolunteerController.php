@@ -29,7 +29,7 @@ class VolunteerController extends Controller
             'name'=>'required',
             'address'=>'required',
             'email' => 'string | email | unique:users',
-            'phone'=>'required'
+            'phone'=>'required|numeric|min:11'
           ]); */
 
           $validator = Validator::make($request->all(), [
