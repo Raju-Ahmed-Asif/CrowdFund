@@ -9,6 +9,8 @@ use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Models\VolunteerUser;
 use App\Http\Controllers\Controller;
+use App\Models\Volunteer;
+use Illuminate\Foundation\Auth\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use GuzzleHttp\Psr7\Request as Psr7Request;
 
@@ -19,8 +21,10 @@ class HomeController extends Controller
 
         $crisis=Crisis::all();
         $locations=Location::all();
-        $vol = VolunteerUser::all();
-        return view('frontend.pages.home',compact('crisis','locations','vol'));
+
+       // $vol = VolunteerUser::all();
+       $volunteers=User::where('role','volunteer')->get();
+        return view('frontend.pages.home',compact('crisis','locations','volunteers'));
     }
 
 

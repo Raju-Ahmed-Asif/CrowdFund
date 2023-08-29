@@ -1,6 +1,14 @@
 @extends('backend.master')
 @section('content')
 
+<div>
+    @if (session()->has('message'))
+    <div class="alert alert-success">{{session()->get('message')}}</div>
+    @endif
+</div>
+<div class="mx-3 my-3">
+    <h2>Volunteer List</h2><br>
+    <a href="{{route('add.volunteer')}}" class="btn btn-success">+ Volunteer</a>
 
 <table class="table table-striped">
   <thead>
@@ -19,8 +27,8 @@
   <tbody>
 
     <tr>
-        @foreach ($volunteers as $volunteer)
-      <th scope="row">{{$volunteer->id}}</th>
+        @foreach ($volunteers as $key=>$volunteer)
+      <th scope="row">{{$volunteers->firstitem()+$key}}</th>
       <td>{{$volunteer->name}}</td>
       <td>{{$volunteer->email}}</td>
       <td>{{$volunteer->phone}}</td>
@@ -37,5 +45,7 @@
 
   </tbody>
 </table>
+{{$volunteers->links()}}
+</div>
 
 @endsection

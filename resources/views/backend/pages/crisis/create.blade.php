@@ -40,9 +40,10 @@
     <input type="number" name="goal" class="form-control" id="" placeholder="Amount Need & Amount Goal Input Should be same ">
   </div>
 
+ 
   <div class="form-group">
     <label for="">Volunteers</label>
-    <select name="volunteerUser_id" class="form-control" id="">
+    <select name="volunteer_id" class="form-control" id="">
       @foreach ($volunteers as $value )
         <option  value="{{$value->id}}">{{$value->name}}</option>
       @endforeach

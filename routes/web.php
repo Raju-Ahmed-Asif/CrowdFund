@@ -94,6 +94,10 @@ Route::post('/donor_store',[DonorController::class,'store_donor'])->name('store.
 
 //Volunteer controller
 Route::get('/volunteer_index',[VolunteerController::class,'index'])->name('index.volunteer');
+Route::get('/volunteer_add',[VolunteerController::class,'add_volunteer'])->name('add.volunteer');
+Route::post('/volunteer_store',[VolunteerController::class,'volunteer_store'])->name('store.volunteer');
+
+Route::get('/volunteer_info',[VolunteerController::class,'volunteer_info'])->name('volunteer.info');
 
 
 //CrisisCategory

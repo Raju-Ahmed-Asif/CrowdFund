@@ -4,14 +4,11 @@
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
 
+                            @if (auth()->user()->role=='admin')
                             <a class="nav-link" href="{{url('/dashboard')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-
-
-
-
 
                             <a class="nav-link" href="{{route('index.volunteer')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -44,24 +41,21 @@
                                 Expense
                             </a>
 
+                             <a class="nav-link" href="{{route('crisis.report')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                               Crisis  Report
+                            </a>
+                            @endif
 
-
-                              <a class="nav-link" href="{{route('index.expense_categories')}}">
+                            <a class="nav-link" href="{{route('index.expense_categories')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Expense Categories
                             </a>
 
 
 
-                             <a class="nav-link" href="{{route('crisis.report')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                               Crisis  Report
-                            </a>
 
 
-
-
-                           
 
 
 

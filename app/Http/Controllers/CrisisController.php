@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Donor;
 use App\Models\Crisis;
-use App\Models\CrisisCategory;
-use App\Models\VolunteerUser;
 use Illuminate\Http\Request;
+use App\Models\VolunteerUser;
+use App\Models\CrisisCategory;
+use Illuminate\Foundation\Auth\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,13 +18,15 @@ class CrisisController extends Controller
    {
     $crises=Crisis::with([ 'volunteer' ,'category'])->get();
     // dd($crises);
+    //$volunteers=User::with('volunteer')->get();
     return view('backend.pages.crisis.index',compact('crises'));
    }
 
    public function create()
    {
 
-    $volunteers= VolunteerUser::all();
+    //$volunteers= VolunteerUser::all();
+    $volunteers=User::where('role','volunteer')->get();
     $crisisCategories=CrisisCategory::all();
      return view('backend.pages.crisis.create', compact('volunteers','crisisCategories'));
    }
@@ -76,7 +79,7 @@ class CrisisController extends Controller
         "to_date"       => $request->to_date,
         "amount_need"   => $request->amount_need,
         "goal"   => $request->goal,
-        "volunteerUser_id"=>$request->volunteerUser_id,
+        "volunteer_id"=>$request->volunteer_id,
         "about_crisis"=>$request->about_crisis,
         "image"         => $imageName,
     ]);

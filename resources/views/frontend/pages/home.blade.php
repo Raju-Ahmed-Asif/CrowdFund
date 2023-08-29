@@ -118,7 +118,7 @@
                 <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
                     <!-- Section Tittle -->
                     <div class="section-tittle section-tittle2 text-center mb-70">
-                       <h1 class="text-center"><strong>Volunteers</strong></h1>
+                       <h1 class="text-center"><strong>Volunteer Info</strong></h1>
                        <hr>
                     </div>
                 </div>
@@ -136,14 +136,14 @@
 
                     <div class="row">
 
-                        @foreach ($vol as $item)
+                        @foreach ($volunteers as $item)
                         <div class="col-sm-6"><br>
 
                           <div class="card">
 
                             <div class="card-body">
                               <h1 class="card-title">Volunteer Name <strong> :{{$item->name}}</strong></h1>
-                              <p class="card-text">Email: :{{$item->email}}</p>
+                              <p class="card-text">Email :{{$item->email}}.tk</p>
                               <p class="card-text">Phone: :{{$item->phone}}</p>
                               <a href="{{url('/')}}" class="btn btn-primary">Click here to go home</a>
                             </div>

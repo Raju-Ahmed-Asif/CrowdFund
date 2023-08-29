@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 120);
             $table->string('status',10)->default('active');
             $table->foreignId('crisisCategory_id')->constrained('crisis_categories')->cascadeOnDelete();
-            $table->foreignId('volunteerUser_id')->constrained('volunteer_users')->cascadeOnDelete();
+            $table->foreignId('volunteer_id')->constrained('users')->cascadeOnDelete();
             $table->text('description')->nullable();
             $table->double('goal',10,2)->default(0.0);
             $table->double('amount_need',10,2)->default(0.0);

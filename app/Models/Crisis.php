@@ -19,7 +19,7 @@ class Crisis extends Model
     }
 
     public function volunteer(){
-        return $this->belongsTo(VolunteerUser::class, 'volunteerUser_id','id');
+        return $this->belongsTo(User::class, 'volunteer_id','id');
     }
     public function category(){
         return $this->belongsTo(CrisisCategory::class, 'crisisCategory_id', 'id');

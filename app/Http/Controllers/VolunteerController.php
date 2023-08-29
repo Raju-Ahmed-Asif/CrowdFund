@@ -2,23 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Crisis;
 use App\Models\Volunteer;
-use App\Models\VolunteerUser;
 use Illuminate\Http\Request;
+use App\Models\VolunteerUser;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 class VolunteerController extends Controller
 {
     public function index(){
-        $volunteers =VolunteerUser::paginate(5);
-
+        // $volunteers =VolunteerUser::paginate(5);
+        $volunteers=User::paginate(5);
         return view('backend.pages.volunteer.index',compact('volunteers'));
     }
     public function create_volunteer(){
         $crisis=Crisis::all();
         return view('backend.pages.volunteer.create',compact('crisis'));
+    }
+    public function add_volunteer(){
+        return view('backend.pages.volunteer.add_volunteer');
+    }
+    public function volunteer_store(Request $request){
+        // dd($request->all());
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email',
+            'contact'=>'required',
+            'address'=>'required',
+        ]);
+        // dd($request->all());
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'phone'=>$request->contact,
+            'address'=>$request->address,
+            'password'=>bcrypt($request->password),
+            'role'=>'volunteer',
+        ]);
+        return to_route('index.volunteer')->with('message','Data added successfully !!!');
+
+
     }
 
 
@@ -66,10 +91,18 @@ class VolunteerController extends Controller
 
     public function volunteer_delete($id){
 
-        VolunteerUser::destroy($id);
+        User::destroy($id);
 
         Alert::toast()->error('Deleted');
 
         return back();
+    }
+
+
+
+    public function volunteer_info(){
+        $volunteers = Volunteer::all();
+        return view('frontend.pages.volunteers.volunteerinfo',compact('volunteers'));
+
     }
 }
