@@ -21,11 +21,11 @@
                                             <li><a href="{{ route('homepage') }}">Home</a></li>
 
                                             <li><a href="{{route('frontend.crisis')}}">Crisis</a></li>
-                                            <li><a href="">Volunteers</a></li>
+                                            <li><a href="{{route('volunteer.info')}}">Volunteers</a></li>
 
-                                            <li><a href="contact.html">Contact</a></li>
+
                                             <li><a href="{{url('/donate-info')}}">See Donors</a></li>
-                                            <li><a href="{{route('registration')}}">Registration</a></li>
+                                            {{-- <li><a href="{{route('registration')}}">Registration</a></li> --}}
 
                                         </ul>
                                     </nav>

@@ -24,7 +24,7 @@
 </form>
 <div id="crisisReport">
 
-<h1>Report of - {{request()->from_date}} to  {{request()->to_date}}</h1>
+<h1>Report From - {{request()->from_date}} to  {{request()->to_date}}</h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -32,7 +32,7 @@
             <th scope="col">Name</th>
             <th scope="col">Status</th>
             <th scope="col">Adding Date</th>
-           
+
 
         </tr>
         </thead>
@@ -43,14 +43,14 @@
             <td>{{$key+1}}</td>
             <td>{{$item->name}}</td>
             <td>{{$item->status}}</td>
-            <td>{{$item->created_at}}</td> 
-           
+            <td>{{$item->created_at}}</td>
+
         </tr>
         @endforeach
         @endif
         </tbody>
-       
-        
+
+
     </table>
 </div>
 <button onclick="printDiv('crisisReport')" class="btn btn-success">Print</button>

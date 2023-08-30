@@ -26,12 +26,27 @@ class VolunteerController extends Controller
     }
     public function volunteer_store(Request $request){
         // dd($request->all());
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required|email',
-            'contact'=>'required',
-            'address'=>'required',
-        ]);
+        // $validate = request()->validate([
+        //     'name'=>'required',
+        //     'email'=>'required|email',
+        //     'contact'=>'required|',
+        //     'address'=>'required|numeric|min:11'
+        // ]);
+
+
+        $validate = Validator::make($request->all(),[
+                'name'=>'required',
+                'email'=>'required|email',
+                'contact'=>'required|digits:11|regex:/(01)[0-9]{9}/',
+                'address'=>'required'
+            ]);
+
+        if ($validate->fails())
+        {
+            Alert::toast()->warning('Something went wrong', 'Failed');
+
+            return redirect()->back();
+        }
         // dd($request->all());
         User::create([
             'name'=>$request->name,
@@ -101,7 +116,9 @@ class VolunteerController extends Controller
 
 
     public function volunteer_info(){
-        $volunteers = Volunteer::all();
+       //  dd('volunteers');
+        //$volunteers = Volunteer::all();
+        $volunteers=User::where('role','volunteer')->get();
         return view('frontend.pages.volunteers.volunteerinfo',compact('volunteers'));
 
     }

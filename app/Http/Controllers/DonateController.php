@@ -78,7 +78,7 @@ class DonateController extends Controller
     }
 
     public function donateinfo(){
-
+ 
         //dd('donateinfo');
         $donate = Donate::all();
         return view('frontend.pages.volunteers.donartinfo',compact('donate'));

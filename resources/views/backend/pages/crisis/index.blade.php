@@ -20,9 +20,10 @@
   </thead>
   <tbody>
 
-            @foreach ($crises as $value )
+            @foreach ($crises as $key=>$value )
             <tr>
-                <td>{{$value->id}}</td>
+                <th scope="row">{{$key+1}}</th>
+                {{-- <td>{{$value->}}</td> --}}
                 <td>{{$value->name}}</td>
                 <td>{{$value->category->name}}</td>
                 <td>{{$value->status}}</td>
@@ -47,4 +48,6 @@
 
   </tbody>
 </table>
+
+{{-- {{$crises->links()}} --}}
 @endsection

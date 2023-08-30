@@ -143,7 +143,7 @@
 
                             <div class="card-body">
                               <h1 class="card-title">Volunteer Name <strong> :{{$item->name}}</strong></h1>
-                              <p class="card-text">Email :{{$item->email}}.tk</p>
+                              <p class="card-text">Email :{{$item->email}}</p>
                               <p class="card-text">Phone: :{{$item->phone}}</p>
                               <a href="{{url('/')}}" class="btn btn-primary">Click here to go home</a>
                             </div>
@@ -202,7 +202,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4">
-                        <a href="{{url('/registration-form')}}" class="btn white-btn f-right sm-left">Become A Volunteer</a>
+                        {{-- <a href="{{url('/registration-form')}}" class="btn white-btn f-right sm-left">Become A Volunteer</a> --}}
                     </div>
                 </div>
             </div>

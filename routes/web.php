@@ -89,6 +89,7 @@ Route::get('/expense-cat-delete/{id}',[Expense_categoryController::class,'expens
 
 Route::get('/donation',[DonationController::class,'index_donation'])->name('index.donation');
 Route::get('/donor_index',[DonorController::class,'index_donor'])->name('index.donor');
+
 Route::get('/donor_create',[DonorController::class,'create_donor'])->name('create.donor');
 Route::post('/donor_store',[DonorController::class,'store_donor'])->name('store.donor');
 
